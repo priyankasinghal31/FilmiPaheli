@@ -4,6 +4,7 @@
 Line format:  pack|ANSWER|emoji|clue|category|year
 Answers use A-Z and single spaces only. A film may repeat only in the
 'dialogues' and 'directors' packs. Lines with year 0 are ignored.
+IDs come from the title, so never rename a film's answer after release.
 Run from the repo root:  python3 tools/build_puzzles.py
 """
 import glob, json, re, sys, collections
@@ -37,7 +38,9 @@ count = collections.Counter()
 out = []
 for pack, answer, emoji, clue, cat, year in rows:
     count[pack] += 1
-    out.append({"id": f"{pack}-{count[pack]:03d}", "pack": pack, "answer": answer,
+    # Stable id from the title, so saved progress survives adding or reordering films.
+    pid = f"{pack}-{answer.lower().replace(' ', '-')}"
+    out.append({"id": pid, "pack": pack, "answer": answer,
                 "emoji": emoji, "clue": clue, "category": cat, "year": year})
 
 with open("app/src/main/assets/puzzles.json", "w", encoding="utf-8") as f:
