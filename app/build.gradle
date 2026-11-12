@@ -14,8 +14,20 @@ android {
         versionName "1.0"
     }
 
+    buildFeatures {
+        buildConfig true
+    }
+
     buildTypes {
+        debug {
+            // Google's public TEST ids: safe to tap while developing.
+            manifestPlaceholders = [admobAppId: "ca-app-pub-3940256099942544~3347511713"]
+            buildConfigField "String", "REWARDED_ID", "\"ca-app-pub-3940256099942544/5224354917\""
+        }
         release {
+            // Your real AdMob ids. Release builds only.
+            manifestPlaceholders = [admobAppId: "ca-app-pub-4481983547528695~3831929520"]
+            buildConfigField "String", "REWARDED_ID", "\"ca-app-pub-4481983547528695/2024023831\""
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

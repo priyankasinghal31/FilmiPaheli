@@ -100,12 +100,4 @@ public final class Prefs {
     public void markDailyDone() {
         sp.edit().putString("dailyDone", today()).apply();
     }
-
-    // ---- interstitial pacing ----
-    /** Counts finished puzzles. Returns true on every 4th one. */
-    public boolean countPuzzleAndCheckAdBreak() {
-        int n = sp.getInt("puzzlesSinceStart", 0) + 1;
-        sp.edit().putInt("puzzlesSinceStart", n).apply();
-        return n % 4 == 0;
-    }
 }

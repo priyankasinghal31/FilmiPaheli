@@ -78,19 +78,11 @@ public class ResultActivity extends AppCompatActivity {
                 return;
             }
             Puzzle n = repo.next(packId, puzzleId, prefs);
-            Runnable go = () -> {
-                Intent i = new Intent(this, GameActivity.class);
-                i.putExtra(GameActivity.EX_PACK, n.pack);
-                i.putExtra(GameActivity.EX_PUZZLE, n.id);
-                startActivity(i);
-                finish();
-            };
-            // short ad break after every 4th finished puzzle
-            if (prefs.countPuzzleAndCheckAdBreak()) {
-                AdManager.get(this).showInterstitial(this, go);
-            } else {
-                go.run();
-            }
+            Intent i = new Intent(this, GameActivity.class);
+            i.putExtra(GameActivity.EX_PACK, n.pack);
+            i.putExtra(GameActivity.EX_PUZZLE, n.id);
+            startActivity(i);
+            finish();
         });
 
         findViewById(R.id.btnHome).setOnClickListener(v -> goHome());

@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Filmi">
 
-        <!-- Google's public TEST app id. Replace with your own before release. -->
+        <!-- Set per build type in app/build.gradle (test id for debug, real id for release). -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="${admobAppId}" />
 
         <activity
             android:name=".HomeActivity"

@@ -10,7 +10,7 @@ A Bollywood guess-the-film puzzle game for Android, written in Java. Each puzzle
 - Coins, stars (1 to 3 by hearts left) and saved progress
 - Hints: spend 20 coins, or watch a rewarded ad for a free letter
 - Rewarded ad for an extra life after a loss
-- Interstitial ad after every 4th finished puzzle
+- Ads only run when the player chooses to watch one (no forced ads)
 - 20 sample films in `app/src/main/assets/puzzles.json`
 
 ## Project layout
@@ -40,7 +40,7 @@ Add an object to `puzzles.json`. Answers must use capital letters A to Z and sin
 
 ## Ads
 
-The project uses Google's public **test** AdMob ids in `AndroidManifest.xml` and `AdManager.java`. Create your own app and ad units in AdMob and replace them before publishing.
+Ad ids are set per build type in `app/build.gradle`. Debug builds (run from Android Studio) use Google's public **test** ids, so tapping ads is safe. Release builds use the real AdMob ids. Never tap real ads on your own device.
 
 ## Fonts
 
