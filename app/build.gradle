@@ -43,5 +43,7 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.work:work-runtime:2.9.0'
+    // WorkManager's Worker needs ListenableFuture to compile.
+    implementation 'com.google.guava:guava:32.1.3-android'
     implementation 'com.google.android.gms:play-services-ads:23.0.0'
 }
