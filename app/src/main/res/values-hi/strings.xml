@@ -56,13 +56,9 @@
     <string name="result_win3">ब्लॉकबस्टर!</string>
     <string name="result_win2">हिट फ़िल्म!</string>
     <string name="result_win1">बाल-बाल बचे</string>
-    <string name="result_flop">फ़्लॉप शो</string>
     <string name="result_was_win">फ़िल्म थी</string>
-    <string name="result_was_flop">वो थी</string>
     <string name="next_puzzle">अगली पहेली</string>
     <string name="back_home">होम पर जाएँ</string>
-    <string name="extra_life">दिल पाने के लिए विज्ञापन देखें</string>
-    <string name="out_of_hearts">आपके सारे दिल ख़त्म हो गए। एक छोटा विज्ञापन देखकर एक दिल पाएँ और खेलते रहें।</string>
 
     <string name="settings_language">भाषा</string>
     <string name="lang_en">English</string>
@@ -88,4 +84,7 @@
     <string name="share_chooser">दोस्तों के साथ शेयर करें</string>
     <string name="share_daily">मैंने आज की फ़िल्मी पहेली %1$s बचाकर हल कर ली! क्या आप मुझे हरा सकते हैं?\n%2$s</string>
     <string name="share_pack">मैंने फ़िल्मी पहेली में एक फ़िल्म (%1$s) %2$s बचाकर हल की! क्या आप कर सकते हैं?\n%3$s</string>
+    <string name="oh_title">दिल ख़त्म हो गए</string>
+    <string name="oh_message">एक अक्षर और अंदाज़ा लगाने का मौक़ा पाने के लिए छोटा विज्ञापन देखें।</string>
+    <string name="oh_watch">विज्ञापन देखें</string>
 </resources>

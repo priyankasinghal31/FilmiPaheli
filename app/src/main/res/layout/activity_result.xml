@@ -24,17 +24,6 @@
         android:layout_marginTop="14dp"
         android:orientation="horizontal" />
 
-    <TextView
-        android:id="@+id/rMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:gravity="center"
-        android:text="@string/out_of_hearts"
-        android:textColor="@color/text"
-        android:textSize="17sp"
-        android:visibility="gone" />
-
     <LinearLayout
         android:id="@+id/revealCard"
         android:layout_width="match_parent"
@@ -119,27 +108,7 @@
         android:textAllCaps="false"
         android:textColor="@color/ink"
         android:textSize="15sp"
-        android:textStyle="bold"
-        android:visibility="gone" />
-
-    <Button
-        android:id="@+id/btnRetry"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/btn_ghost"
-        android:drawableStart="@drawable/ic_play"
-        android:drawablePadding="8dp"
-        android:drawableTint="@color/marigold"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        android:stateListAnimator="@null"
-        android:text="@string/extra_life"
-        android:textAllCaps="false"
-        android:textColor="@color/text"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:visibility="gone" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnHome"

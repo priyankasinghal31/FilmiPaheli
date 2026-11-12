@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -29,8 +30,6 @@ public class GameActivity extends AppCompatActivity {
     public static final String EX_PACK = "pack";
     public static final String EX_PUZZLE = "puzzle";
     public static final String EX_DAILY = "daily";
-    public static final String EX_LIVES = "lives";
-    public static final String EX_USED = "used";
 
     private static final int MAX_LIVES = 3;
     private static final int HINT_COST = 20;
@@ -63,24 +62,12 @@ public class GameActivity extends AppCompatActivity {
         String puzzleId = in.getStringExtra(EX_PUZZLE);
         daily = in.getBooleanExtra(EX_DAILY, false);
         puzzle = puzzleId != null ? repo.byId(puzzleId) : repo.firstToPlay(packId, prefs);
-        lives = in.getIntExtra(EX_LIVES, MAX_LIVES);
 
-        // This film was lost earlier and the ad was not watched yet. Back to the ad screen.
-        if (puzzle.id.equals(prefs.pendingLossId()) && in.getStringExtra(EX_USED) == null) {
-            Intent r = new Intent(this, ResultActivity.class);
-            r.putExtra(ResultActivity.EX_WIN, false);
-            r.putExtra(EX_PACK, puzzle.pack);
-            r.putExtra(EX_PUZZLE, puzzle.id);
-            r.putExtra(EX_DAILY, daily);
-            r.putExtra(EX_USED, prefs.pendingLossUsed());
-            startActivity(r);
-            finish();
-            return;
+        // The player left while out of hearts. Bring back the same letters and ask for the ad again.
+        if (puzzle.id.equals(prefs.pendingLossId())) {
+            for (char c : prefs.pendingLossUsed().toCharArray()) used.add(c);
+            lives = 0;
         }
-
-        // restore letters from a previous attempt (used after "watch ad for an extra life")
-        String saved = in.getStringExtra(EX_USED);
-        if (saved != null) for (char c : saved.toCharArray()) used.add(c);
 
         livesBox = findViewById(R.id.lives);
         answerBox = findViewById(R.id.answerBox);
@@ -108,7 +95,8 @@ public class GameActivity extends AppCompatActivity {
 
         buildKeyboard();
         refreshAll();
-        if (isSolved() || lives <= 0) finishRound(); // cannot happen normally, but stay safe
+        if (isSolved()) finishRound();
+        else if (lives <= 0) promptAd();
     }
 
     // ------------------------------------------------------------ game rules
@@ -128,15 +116,46 @@ public class GameActivity extends AppCompatActivity {
             renderAnswer(c);
         } else {
             lives--;
-            Feedback.get(this).wrong();
+            if (lives <= 0) Feedback.get(this).lose();
+            else Feedback.get(this).wrong();
             renderLives();
             shake(livesBox);
         }
         updateKey(c);
-        if (isSolved() || lives <= 0) {
+        if (isSolved()) {
             locked = true;
             handler.postDelayed(this::finishRound, 750);
+        } else if (lives <= 0) {
+            // Out of hearts. Remember it, so leaving the screen does not skip the ad.
+            locked = true;
+            prefs.setPendingLoss(puzzle.id, usedLetters());
+            handler.postDelayed(this::promptAd, 600);
         }
+    }
+
+    private String usedLetters() {
+        StringBuilder sb = new StringBuilder();
+        for (char c : used) sb.append(c);
+        return sb.toString();
+    }
+
+    /** Out of hearts: an ad gives one more chance to guess a letter. The film name is never shown. */
+    private void promptAd() {
+        if (isFinishing() || isDestroyed()) return;
+        locked = true;
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.oh_title)
+                .setMessage(R.string.oh_message)
+                .setCancelable(false)
+                .setPositiveButton(R.string.oh_watch, (d, w) ->
+                        AdManager.get(this).showForChance(this, () -> {
+                            prefs.clearPendingLoss();
+                            lives = 1;
+                            locked = false;
+                            renderLives();
+                        }, this::promptAd))
+                .setNegativeButton(R.string.back_home, (d, w) -> finish())
+                .show();
     }
 
     private void onCoinHint() {
@@ -165,35 +184,26 @@ public class GameActivity extends AppCompatActivity {
     /** Works out stars and coins, saves progress, then opens the result screen. */
     private void finishRound() {
         if (isFinishing()) return;
-        boolean win = isSolved();
-        int stars = 0, gain = 0;
-        if (win) {
-            stars = lives >= 3 ? 3 : lives == 2 ? 2 : 1;
-            boolean firstTime = !prefs.isSolved(puzzle.id);
-            if (firstTime) gain += 10 * stars;
-            if (daily) prefs.markDailyPlayed();
-        if (win && daily && !prefs.dailyDone()) {
-                gain += 50;
-                prefs.markDailyDone();
-            }
-            prefs.markSolved(puzzle.id);
-            prefs.markPlayedToday();
-            prefs.addCoins(gain);
+        // Stars follow the hearts left. Needing an ad for another chance leaves one heart at most.
+        int stars = lives >= 3 ? 3 : lives == 2 ? 2 : 1;
+        int gain = 0;
+        if (!prefs.isSolved(puzzle.id)) gain += 10 * stars;
+        if (daily) prefs.markDailyPlayed();
+        if (daily && !prefs.dailyDone()) {
+            gain += 50;
+            prefs.markDailyDone();
         }
-        StringBuilder usedLetters = new StringBuilder();
-        for (char c : used) usedLetters.append(c);
-
-        if (win) prefs.clearPendingLoss();
-        else prefs.setPendingLoss(puzzle.id, usedLetters.toString());
+        prefs.markSolved(puzzle.id);
+        prefs.markPlayedToday();
+        prefs.addCoins(gain);
+        prefs.clearPendingLoss();
 
         Intent i = new Intent(this, ResultActivity.class);
-        i.putExtra(ResultActivity.EX_WIN, win);
         i.putExtra(ResultActivity.EX_STARS, stars);
         i.putExtra(ResultActivity.EX_GAIN, gain);
         i.putExtra(EX_PACK, puzzle.pack);
         i.putExtra(EX_PUZZLE, puzzle.id);
         i.putExtra(EX_DAILY, daily);
-        i.putExtra(EX_USED, usedLetters.toString());
         startActivity(i);
         finish();
     }

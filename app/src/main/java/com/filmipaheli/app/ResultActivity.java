@@ -10,10 +10,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-/** Shown after a round: stars and coins on a win, or an extra-life offer on a loss. */
+/** Shown after a film is solved: stars, coins, the film name, share and next puzzle. */
 public class ResultActivity extends AppCompatActivity {
 
-    public static final String EX_WIN = "win";
     public static final String EX_STARS = "stars";
     public static final String EX_GAIN = "gain";
 
@@ -26,68 +25,31 @@ public class ResultActivity extends AppCompatActivity {
         PuzzleRepository repo = PuzzleRepository.get(this);
 
         Intent in = getIntent();
-        boolean win = in.getBooleanExtra(EX_WIN, false);
-        int stars = in.getIntExtra(EX_STARS, 0);
+        int stars = in.getIntExtra(EX_STARS, 1);
         int gain = in.getIntExtra(EX_GAIN, 0);
         String packId = in.getStringExtra(GameActivity.EX_PACK);
         String puzzleId = in.getStringExtra(GameActivity.EX_PUZZLE);
         boolean daily = in.getBooleanExtra(GameActivity.EX_DAILY, false);
-        String used = in.getStringExtra(GameActivity.EX_USED);
         Puzzle puzzle = repo.byId(puzzleId);
 
-        TextView title = findViewById(R.id.rTitle);
-        TextView small = findViewById(R.id.rSmall);
-        Button next = findViewById(R.id.btnNext);
-        Button retry = findViewById(R.id.btnRetry);
-        View reward = findViewById(R.id.rReward);
-
+        ((TextView) findViewById(R.id.rTitle)).setText(
+                stars == 3 ? R.string.result_win3 : stars == 2 ? R.string.result_win2 : R.string.result_win1);
+        ((TextView) findViewById(R.id.rSmall)).setText(R.string.result_was_win);
         ((TextView) findViewById(R.id.rAnswer)).setText(puzzle.answer);
         ((TextView) findViewById(R.id.rInfo)).setText(puzzle.category + ", " + puzzle.year);
 
-        if (win) {
-            title.setText(stars == 3 ? R.string.result_win3 : stars == 2 ? R.string.result_win2 : R.string.result_win1);
-            small.setText(R.string.result_was_win);
-            next.setText(daily ? R.string.back_home : R.string.next_puzzle);
-            reward.setVisibility(gain > 0 ? View.VISIBLE : View.GONE);
-            ((TextView) findViewById(R.id.rGain)).setText("+" + gain);
-        } else {
-            title.setText(R.string.result_flop);
-            findViewById(R.id.revealCard).setVisibility(View.GONE);
-            findViewById(R.id.rMessage).setVisibility(View.VISIBLE);
-            next.setVisibility(View.GONE);
-            title.setTextColor(getColor(R.color.rani));
-            small.setText(R.string.result_was_flop);
-            reward.setVisibility(View.GONE);
-            retry.setVisibility(View.VISIBLE);
-        }
+        View reward = findViewById(R.id.rReward);
+        reward.setVisibility(gain > 0 ? View.VISIBLE : View.GONE);
+        ((TextView) findViewById(R.id.rGain)).setText("+" + gain);
+
         drawStars(stars);
-        if (win) Feedback.get(this).win(); else Feedback.get(this).lose();
+        Feedback.get(this).win();
 
-        Button share = findViewById(R.id.btnShare);
-        if (win) {
-            share.setVisibility(View.VISIBLE);
-            share.setOnClickListener(v -> {
-                Feedback.get(this).tap();
-                shareResult(stars, daily, packId);
-            });
-        }
-
-        // Extra life: watch a rewarded ad, then return to the same puzzle with 1 heart and the same letters.
-        retry.setOnClickListener(v -> AdManager.get(this).showRewarded(this, () -> {
-            prefs.clearPendingLoss();
-            Intent i = new Intent(this, GameActivity.class);
-            i.putExtra(GameActivity.EX_PACK, packId);
-            i.putExtra(GameActivity.EX_PUZZLE, puzzleId);
-            i.putExtra(GameActivity.EX_DAILY, daily);
-            i.putExtra(GameActivity.EX_LIVES, 1);
-            i.putExtra(GameActivity.EX_USED, used);
-            startActivity(i);
-            finish();
-        }));
-
+        Button next = findViewById(R.id.btnNext);
+        next.setText(daily ? R.string.back_home : R.string.next_puzzle);
         next.setOnClickListener(v -> {
             Feedback.get(this).tap();
-            if (daily && win) {
+            if (daily) {
                 goHome();
                 return;
             }
@@ -97,6 +59,11 @@ public class ResultActivity extends AppCompatActivity {
             i.putExtra(GameActivity.EX_PUZZLE, n.id);
             startActivity(i);
             finish();
+        });
+
+        findViewById(R.id.btnShare).setOnClickListener(v -> {
+            Feedback.get(this).tap();
+            shareResult(stars, daily, packId);
         });
 
         findViewById(R.id.btnHome).setOnClickListener(v -> {

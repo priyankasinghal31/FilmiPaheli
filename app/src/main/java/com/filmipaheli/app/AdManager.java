@@ -57,6 +57,37 @@ public final class AdManager {
         });
     }
 
+    /**
+     * Out of hearts: shows an ad, then gives the player another chance.
+     * 'onGrant' runs when the ad was watched. 'onDeclined' runs if it was closed early.
+     * If no ad can be shown (offline, no fill) the chance is granted anyway, so nobody gets stuck.
+     */
+    public void showForChance(Activity activity, Runnable onGrant, Runnable onDeclined) {
+        if (rewarded == null) {
+            loadRewarded();
+            onGrant.run();
+            return;
+        }
+        final RewardedAd ad = rewarded;
+        rewarded = null;
+        final boolean[] earned = {false};
+        ad.setFullScreenContentCallback(new FullScreenContentCallback() {
+            @Override
+            public void onAdDismissedFullScreenContent() {
+                loadRewarded();
+                if (earned[0]) onGrant.run();
+                else onDeclined.run();
+            }
+
+            @Override
+            public void onAdFailedToShowFullScreenContent(@NonNull AdError error) {
+                loadRewarded();
+                onGrant.run();
+            }
+        });
+        ad.show(activity, item -> earned[0] = true);
+    }
+
     /** Shows a rewarded ad. 'onReward' runs after the ad closes, only if the viewer earned the reward. */
     public void showRewarded(Activity activity, Runnable onReward) {
         if (rewarded == null) {

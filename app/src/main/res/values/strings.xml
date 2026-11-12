@@ -60,13 +60,9 @@
     <string name="result_win3">Blockbuster!</string>
     <string name="result_win2">Hit film!</string>
     <string name="result_win1">Just made it</string>
-    <string name="result_flop">Flop show</string>
     <string name="result_was_win">The film was</string>
-    <string name="result_was_flop">It was</string>
     <string name="next_puzzle">Next puzzle</string>
     <string name="back_home">Back to home</string>
-    <string name="extra_life">Watch ad to get a heart</string>
-    <string name="out_of_hearts">You are out of hearts. Watch a short ad to get a heart and keep guessing.</string>
 
     <!-- settings -->
     <string name="settings_language">Language</string>
@@ -94,4 +90,7 @@
     <string name="share_chooser">Share with friends</string>
     <string name="share_daily">I solved today\'s Filmi Paheli with %1$s left! Can you beat me?\n%2$s</string>
     <string name="share_pack">I solved a film in Filmi Paheli (%1$s) with %2$s left! Can you?\n%3$s</string>
+    <string name="oh_title">Out of hearts</string>
+    <string name="oh_message">Watch a short ad to get one more chance to guess a letter.</string>
+    <string name="oh_watch">Watch ad</string>
 </resources>
