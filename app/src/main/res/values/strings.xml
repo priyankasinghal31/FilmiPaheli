@@ -77,4 +77,21 @@
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
     <string name="settings_note">Film clues are in English for now.</string>
+
+    <!-- sound, reminder, share -->
+    <string name="settings_alerts">Sound and alerts</string>
+    <string name="setting_sound">Sound effects</string>
+    <string name="setting_vibration">Vibration</string>
+    <string name="setting_reminder">Daily reminder at 7 pm</string>
+    <string name="reminder_channel">Daily reminder</string>
+    <string name="reminder_title">Today\'s film is waiting</string>
+    <string name="reminder_body">One film, one clue. Can you guess it?</string>
+    <plurals name="reminder_streak">
+        <item quantity="one">Play today to keep your %d day streak.</item>
+        <item quantity="other">Play today to keep your %d day streak.</item>
+    </plurals>
+    <string name="share_button">Share result</string>
+    <string name="share_chooser">Share with friends</string>
+    <string name="share_daily">I solved today\'s Filmi Paheli with %1$s left! Can you beat me?\n%2$s</string>
+    <string name="share_pack">I solved a film in Filmi Paheli (%1$s) with %2$s left! Can you?\n%3$s</string>
 </resources>

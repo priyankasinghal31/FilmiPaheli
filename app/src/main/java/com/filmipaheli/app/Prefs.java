@@ -106,6 +106,50 @@ public final class Prefs {
         return n;
     }
 
+    // ---- sound, vibration, reminder, language ----
+    public boolean soundOn() {
+        return sp.getBoolean("sound", true);
+    }
+
+    public void setSoundOn(boolean on) {
+        sp.edit().putBoolean("sound", on).apply();
+    }
+
+    public boolean vibrateOn() {
+        return sp.getBoolean("vibrate", true);
+    }
+
+    public void setVibrateOn(boolean on) {
+        sp.edit().putBoolean("vibrate", on).apply();
+    }
+
+    public boolean reminderOn() {
+        return sp.getBoolean("reminder", true);
+    }
+
+    public void setReminderOn(boolean on) {
+        sp.edit().putBoolean("reminder", on).apply();
+    }
+
+    public boolean reminderAsked() {
+        return sp.getBoolean("reminderAsked", false);
+    }
+
+    public void setReminderAsked() {
+        sp.edit().putBoolean("reminderAsked", true).apply();
+    }
+
+    /** "en" or "hi". Defaults to the phone's language. */
+    public String language() {
+        String saved = sp.getString("language", null);
+        if (saved != null) return saved;
+        return "hi".equals(java.util.Locale.getDefault().getLanguage()) ? "hi" : "en";
+    }
+
+    public void setLanguage(String lang) {
+        sp.edit().putString("language", lang).apply();
+    }
+
     // ---- theme: "system", "light" or "dark" ----
     public String theme() {
         return sp.getString("theme", "system");

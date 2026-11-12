@@ -33,7 +33,7 @@ public final class PuzzleRepository {
                 JSONObject o = arr.getJSONObject(i);
                 all.add(new Puzzle(
                         o.getString("id"), o.getString("pack"), o.getString("answer"),
-                        o.getString("emoji"), o.getString("clue"),
+                        o.getString("emoji"), o.getString("clue"), o.optString("clueHi", null),
                         o.getString("category"), o.getString("year")));
             }
         } catch (Exception e) {

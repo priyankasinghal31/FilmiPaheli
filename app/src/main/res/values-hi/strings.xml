@@ -72,4 +72,20 @@
     <string name="theme_light">लाइट</string>
     <string name="theme_dark">डार्क</string>
     <string name="settings_note">फ़िल्म के सुराग अभी अंग्रेज़ी में हैं।</string>
+
+    <string name="settings_alerts">आवाज़ और अलर्ट</string>
+    <string name="setting_sound">आवाज़</string>
+    <string name="setting_vibration">वाइब्रेशन</string>
+    <string name="setting_reminder">रोज़ शाम 7 बजे याद दिलाएँ</string>
+    <string name="reminder_channel">रोज़ की याद</string>
+    <string name="reminder_title">आज की फ़िल्म आपका इंतज़ार कर रही है</string>
+    <string name="reminder_body">एक फ़िल्म, एक सुराग। क्या आप पहचान पाएँगे?</string>
+    <plurals name="reminder_streak">
+        <item quantity="one">अपनी %d दिन की लगातार जीत बनाए रखने के लिए आज खेलें।</item>
+        <item quantity="other">अपनी %d दिन की लगातार जीत बनाए रखने के लिए आज खेलें।</item>
+    </plurals>
+    <string name="share_button">नतीजा शेयर करें</string>
+    <string name="share_chooser">दोस्तों के साथ शेयर करें</string>
+    <string name="share_daily">मैंने आज की फ़िल्मी पहेली %1$s बचाकर हल कर ली! क्या आप मुझे हरा सकते हैं?\n%2$s</string>
+    <string name="share_pack">मैंने फ़िल्मी पहेली में एक फ़िल्म (%1$s) %2$s बचाकर हल की! क्या आप कर सकते हैं?\n%3$s</string>
 </resources>

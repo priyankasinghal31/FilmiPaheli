@@ -7,6 +7,7 @@ public class FilmiApp extends Application {
     public void onCreate() {
         super.onCreate();
         Prefs.get(this).applyTheme();
+        if (Prefs.get(this).reminderOn()) Reminder.schedule(this);
         AdManager.get(this).init();
     }
 }

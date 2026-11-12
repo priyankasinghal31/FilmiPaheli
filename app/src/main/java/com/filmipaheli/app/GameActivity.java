@@ -81,11 +81,15 @@ public class GameActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.countText)).setText(
                 daily ? getString(R.string.daily_puzzle) : getString(R.string.puzzle_count, index + 1, inPack.size()));
         ((TextView) findViewById(R.id.emojiText)).setText(puzzle.emoji);
-        ((TextView) findViewById(R.id.clueText)).setText(puzzle.clue);
+        boolean hindi = "hi".equals(getResources().getConfiguration().getLocales().get(0).getLanguage());
+        ((TextView) findViewById(R.id.clueText)).setText(puzzle.clueFor(hindi));
         ((TextView) findViewById(R.id.chipCat)).setText(puzzle.category);
         ((TextView) findViewById(R.id.chipYear)).setText(puzzle.year);
 
-        findViewById(R.id.btnBack).setOnClickListener(v -> finish());
+        findViewById(R.id.btnBack).setOnClickListener(v -> {
+            Feedback.get(this).tap();
+            finish();
+        });
         findViewById(R.id.hintCoin).setOnClickListener(v -> onCoinHint());
         findViewById(R.id.hintAd).setOnClickListener(v -> onAdHint());
 
@@ -107,9 +111,11 @@ public class GameActivity extends AppCompatActivity {
         boolean hit = puzzle.answer.indexOf(c) >= 0;
         if (hit) {
             if (fromHint) hinted.add(c);
+            Feedback.get(this).correct();
             renderAnswer(c);
         } else {
             lives--;
+            Feedback.get(this).wrong();
             renderLives();
             shake(livesBox);
         }

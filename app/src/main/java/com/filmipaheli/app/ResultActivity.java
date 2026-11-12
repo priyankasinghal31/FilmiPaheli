@@ -59,6 +59,16 @@ public class ResultActivity extends AppCompatActivity {
             retry.setVisibility(View.VISIBLE);
         }
         drawStars(stars);
+        if (win) Feedback.get(this).win(); else Feedback.get(this).lose();
+
+        Button share = findViewById(R.id.btnShare);
+        if (win) {
+            share.setVisibility(View.VISIBLE);
+            share.setOnClickListener(v -> {
+                Feedback.get(this).tap();
+                shareResult(stars, daily, packId);
+            });
+        }
 
         // Extra life: watch a rewarded ad, then return to the same puzzle with 1 heart and the same letters.
         retry.setOnClickListener(v -> AdManager.get(this).showRewarded(this, () -> {
@@ -73,6 +83,7 @@ public class ResultActivity extends AppCompatActivity {
         }));
 
         next.setOnClickListener(v -> {
+            Feedback.get(this).tap();
             if (daily && win) {
                 goHome();
                 return;
@@ -85,7 +96,24 @@ public class ResultActivity extends AppCompatActivity {
             finish();
         });
 
-        findViewById(R.id.btnHome).setOnClickListener(v -> goHome());
+        findViewById(R.id.btnHome).setOnClickListener(v -> {
+            Feedback.get(this).tap();
+            goHome();
+        });
+    }
+
+    /** Shares a message that does not reveal the answer. Hearts left equals stars earned. */
+    private void shareResult(int hearts, boolean daily, String packId) {
+        StringBuilder h = new StringBuilder();
+        for (int i = 0; i < 3; i++) h.append(i < hearts ? "❤️" : "🖤");
+        String link = "https://play.google.com/store/apps/details?id=" + getPackageName();
+        String text = daily
+                ? getString(R.string.share_daily, h, link)
+                : getString(R.string.share_pack, getString(Pack.byId(packId).nameRes), h, link);
+        Intent send = new Intent(Intent.ACTION_SEND);
+        send.setType("text/plain");
+        send.putExtra(Intent.EXTRA_TEXT, text);
+        startActivity(Intent.createChooser(send, getString(R.string.share_chooser)));
     }
 
     private void drawStars(int earned) {

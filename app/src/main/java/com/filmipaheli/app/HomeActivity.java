@@ -1,6 +1,9 @@
 package com.filmipaheli.app;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.util.Calendar;
 import java.util.List;
@@ -41,10 +46,15 @@ public class HomeActivity extends AppCompatActivity {
         weekRow = findViewById(R.id.weekRow);
         packList = findViewById(R.id.packList);
 
-        findViewById(R.id.btnSettings).setOnClickListener(v ->
-                startActivity(new Intent(this, SettingsActivity.class)));
+        askNotificationPermissionOnce();
+
+        findViewById(R.id.btnSettings).setOnClickListener(v -> {
+            Feedback.get(this).tap();
+            startActivity(new Intent(this, SettingsActivity.class));
+        });
 
         btnDaily.setOnClickListener(v -> {
+            Feedback.get(this).tap();
             Puzzle d = repo.daily();
             Intent i = new Intent(this, GameActivity.class);
             i.putExtra(GameActivity.EX_PACK, d.pack);
@@ -198,11 +208,22 @@ public class HomeActivity extends AppCompatActivity {
                 ? getString(R.string.pack_new, list.size())
                 : getString(R.string.pack_progress, solved, list.size()));
         card.setOnClickListener(v -> {
+            Feedback.get(this).tap();
             Intent i = new Intent(this, GameActivity.class);
             i.putExtra(GameActivity.EX_PACK, pack.id);
             startActivity(i);
         });
         return card;
+    }
+
+    /** On Android 13 and newer, asks once so the daily reminder can show. */
+    private void askNotificationPermissionOnce() {
+        if (prefs.reminderAsked()) return;
+        prefs.setReminderAsked();
+        if (Build.VERSION.SDK_INT >= 33 && ContextCompat.checkSelfPermission(
+                this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
+        }
     }
 
     private int dp(int v) {
