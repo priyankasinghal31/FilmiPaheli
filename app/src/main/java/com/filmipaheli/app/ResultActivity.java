@@ -52,9 +52,11 @@ public class ResultActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.rGain)).setText("+" + gain);
         } else {
             title.setText(R.string.result_flop);
+            findViewById(R.id.revealCard).setVisibility(View.GONE);
+            findViewById(R.id.rMessage).setVisibility(View.VISIBLE);
+            next.setVisibility(View.GONE);
             title.setTextColor(getColor(R.color.rani));
             small.setText(R.string.result_was_flop);
-            next.setText(R.string.try_next);
             reward.setVisibility(View.GONE);
             retry.setVisibility(View.VISIBLE);
         }
@@ -72,6 +74,7 @@ public class ResultActivity extends AppCompatActivity {
 
         // Extra life: watch a rewarded ad, then return to the same puzzle with 1 heart and the same letters.
         retry.setOnClickListener(v -> AdManager.get(this).showRewarded(this, () -> {
+            prefs.clearPendingLoss();
             Intent i = new Intent(this, GameActivity.class);
             i.putExtra(GameActivity.EX_PACK, packId);
             i.putExtra(GameActivity.EX_PUZZLE, puzzleId);

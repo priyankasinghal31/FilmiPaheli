@@ -106,6 +106,23 @@ public final class Prefs {
         return n;
     }
 
+    // ---- a lost puzzle waits for an ad before it can be played again ----
+    public void setPendingLoss(String puzzleId, String usedLetters) {
+        sp.edit().putString("lossId", puzzleId).putString("lossUsed", usedLetters).apply();
+    }
+
+    public String pendingLossId() {
+        return sp.getString("lossId", null);
+    }
+
+    public String pendingLossUsed() {
+        return sp.getString("lossUsed", "");
+    }
+
+    public void clearPendingLoss() {
+        sp.edit().remove("lossId").remove("lossUsed").apply();
+    }
+
     // ---- sound, vibration, reminder, language ----
     public boolean soundOn() {
         return sp.getBoolean("sound", true);

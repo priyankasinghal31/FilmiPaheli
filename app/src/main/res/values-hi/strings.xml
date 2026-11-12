@@ -61,8 +61,8 @@
     <string name="result_was_flop">वो थी</string>
     <string name="next_puzzle">अगली पहेली</string>
     <string name="back_home">होम पर जाएँ</string>
-    <string name="try_next">अगली फ़िल्म आज़माएँ</string>
-    <string name="extra_life">एक और जान के लिए विज्ञापन देखें</string>
+    <string name="extra_life">दिल पाने के लिए विज्ञापन देखें</string>
+    <string name="out_of_hearts">आपके सारे दिल ख़त्म हो गए। एक छोटा विज्ञापन देखकर एक दिल पाएँ और खेलते रहें।</string>
 
     <string name="settings_language">भाषा</string>
     <string name="lang_en">English</string>

@@ -65,8 +65,8 @@
     <string name="result_was_flop">It was</string>
     <string name="next_puzzle">Next puzzle</string>
     <string name="back_home">Back to home</string>
-    <string name="try_next">Try the next film</string>
-    <string name="extra_life">Watch ad for an extra life</string>
+    <string name="extra_life">Watch ad to get a heart</string>
+    <string name="out_of_hearts">You are out of hearts. Watch a short ad to get a heart and keep guessing.</string>
 
     <!-- settings -->
     <string name="settings_language">Language</string>

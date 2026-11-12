@@ -65,6 +65,19 @@ public class GameActivity extends AppCompatActivity {
         puzzle = puzzleId != null ? repo.byId(puzzleId) : repo.firstToPlay(packId, prefs);
         lives = in.getIntExtra(EX_LIVES, MAX_LIVES);
 
+        // This film was lost earlier and the ad was not watched yet. Back to the ad screen.
+        if (puzzle.id.equals(prefs.pendingLossId()) && in.getStringExtra(EX_USED) == null) {
+            Intent r = new Intent(this, ResultActivity.class);
+            r.putExtra(ResultActivity.EX_WIN, false);
+            r.putExtra(EX_PACK, puzzle.pack);
+            r.putExtra(EX_PUZZLE, puzzle.id);
+            r.putExtra(EX_DAILY, daily);
+            r.putExtra(EX_USED, prefs.pendingLossUsed());
+            startActivity(r);
+            finish();
+            return;
+        }
+
         // restore letters from a previous attempt (used after "watch ad for an extra life")
         String saved = in.getStringExtra(EX_USED);
         if (saved != null) for (char c : saved.toCharArray()) used.add(c);
@@ -169,6 +182,9 @@ public class GameActivity extends AppCompatActivity {
         }
         StringBuilder usedLetters = new StringBuilder();
         for (char c : used) usedLetters.append(c);
+
+        if (win) prefs.clearPendingLoss();
+        else prefs.setPendingLoss(puzzle.id, usedLetters.toString());
 
         Intent i = new Intent(this, ResultActivity.class);
         i.putExtra(ResultActivity.EX_WIN, win);
