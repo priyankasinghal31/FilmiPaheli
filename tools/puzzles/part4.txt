@@ -1,0 +1,69 @@
+dialogues|SHOLAY|🔫🏜️🐎|"Kitne aadmi the?"|Dialogue|1975
+dialogues|DEEWAAR|🧱🏙️👩|"Mere paas maa hai."|Dialogue|1975
+dialogues|DILWALE DULHANIA LE JAYENGE|🚂🌼💑|"Ja Simran ja, jee le apni zindagi."|Dialogue|1995
+dialogues|AMAR PREM|🌹🚣🎶|"Pushpa, I hate tears."|Dialogue|1972
+dialogues|ANAND|🩺🎈😊|"Babumoshai, zindagi badi honi chahiye, lambi nahi."|Dialogue|1971
+dialogues|SHAHENSHAH|🦇🔫🚔|"Rishte mein toh hum tumhare baap lagte hain, naam hai Shahenshah."|Dialogue|1988
+dialogues|DON|🕶️🔫🎲|"Don ko pakadna mushkil hi nahin, namumkin hai."|Dialogue|1978
+dialogues|BAAZIGAR|🎲🏢😈|"Haar kar jeetne wale ko baazigar kehte hain."|Dialogue|1993
+dialogues|OM SHANTI OM|🎬🔁🔥|"Picture abhi baaki hai mere dost."|Dialogue|2007
+dialogues|DABANGG|👮‍♂️🕶️🎶|"Thappad se darr nahin lagta sahab, pyaar se lagta hai."|Dialogue|2010
+dialogues|MR INDIA|🕶️⌚👶|"Mogambo khush hua."|Dialogue|1987
+dialogues|DAMINI|⚖️🧑‍⚖️👩|"Tareekh pe tareekh, tareekh pe tareekh."|Dialogue|1993
+dialogues|THREE IDIOTS|🎓🛵🍼|"All is well."|Dialogue|2009
+dialogues|CHENNAI EXPRESS|🚂🌴💃|"Don't underestimate the power of a common man."|Dialogue|2013
+dialogues|KAALIA|⛓️🥊🔥|"Hum jahan khade hote hain, line wahin se shuru hoti hai."|Dialogue|1981
+dialogues|WANTED|🔫🕶️😎|"Ek baar maine commitment kar di, uske baad toh main apne aap ki bhi nahin sunta."|Dialogue|2009
+dialogues|KARAN ARJUN|🔁👬🙏|"Mere Karan Arjun aayenge."|Dialogue|1995
+dialogues|KUCH KUCH HOTA HAI|🏀💞🎓|"Pyaar dosti hai."|Dialogue|1998
+dialogues|MAINE PYAR KIYA|🕊️💞🚲|"Dosti ka ek usool hai madam, no sorry, no thank you."|Dialogue|1989
+dialogues|PAKEEZAH|🚂👣💃|"Aapke paon dekhe, bahut haseen hain. Inhe zameen par mat utariyega, maile ho jayenge."|Dialogue|1972
+dialogues|JAB WE MET|🚂💬💃|"Main apni favourite hoon."|Dialogue|2007
+dialogues|KABHI KHUSHI KABHIE GHAM|👨‍👩‍👧‍👦🎶🏠|"It's all about loving your parents."|Dialogue|2001
+dialogues|WAQT|🌋👨‍👩‍👧‍👦🔍|"Chinoy seth, jinke apne ghar sheeshe ke hon, woh dusron par patthar nahin phenka karte."|Dialogue|1965
+dialogues|ZANJEER|⛓️🕶️🐕|"Jab tak baithne ko na kaha jaye, sharif log khade rehte hain."|Dialogue|1973
+dialogues|AGNEEPATH|🔥💀🏝️|"Vijay Deenanath Chauhan, poora naam."|Dialogue|1990
+dialogues|HERA PHERI|🧒📞💰|"Utha le re baba, mereko nahin, in dono ko utha."|Dialogue|2000
+dialogues|GANGS OF WASSEYPUR|🔫🚂⚫|"Kehke lenge."|Dialogue|2012
+dialogues|SINGHAM|🦁👮🌾|"Aata majhi satakli."|Dialogue|2011
+dialogues|CHAK DE INDIA|🏑🇮🇳💪|"Sattar minute hain tumhare paas."|Dialogue|2007
+dialogues|MUNNA BHAI MBBS|🩺🤗🎓|"Jaadu ki jhappi."|Dialogue|2003
+dialogues|WELCOME|🔫🏝️😂|"Control Uday, control."|Dialogue|2007
+dialogues|RAEES|🍺🚛🔫|"Baniye ka dimaag, miyabhai ki daring."|Dialogue|2017
+dialogues|BADLA|🚗🔍🧑‍⚖️|"Nobody is perfect, but we need to do our best."|Dialogue|2019
+directors|SHOLAY|🔫🏜️🐎|A film by Ramesh Sippy about two crooks, a thakur and a famous dacoit.|Director|1975
+directors|MUGHAL E AZAM|👑🪞💃|A film by K. Asif. It took years to make and the Sheesh Mahal was built with real mirrors.|Director|1960
+directors|PYAASA|📖🎭🥀|A film by Guru Dutt. A poet is loved only after he is thought to be dead.|Director|1957
+directors|DO BIGHA ZAMIN|🌾🚲🏙️|A film by Bimal Roy. A farmer pulls a rickshaw in Calcutta.|Director|1953
+directors|LAGAAN|🏏🌾☀️|A film by Ashutosh Gowariker. Villagers play cricket against the British.|Director|2001
+directors|DEVDAS|🍷💔🏚️|A film by Sanjay Leela Bhansali with Shah Rukh Khan, Aishwarya Rai and Madhuri Dixit.|Director|2002
+directors|BLACK|🦯🎹🖤|A film by Sanjay Leela Bhansali about a teacher and a deaf and blind girl.|Director|2005
+directors|BAJIRAO MASTANI|🏇⚔️💘|A film by Sanjay Leela Bhansali about a Peshwa warrior and his second love.|Director|2015
+directors|THREE IDIOTS|🎓🛵🍼|A film by Rajkumar Hirani about three friends in an engineering college.|Director|2009
+directors|MUNNA BHAI MBBS|🩺🤗🎓|A film by Rajkumar Hirani with Sanjay Dutt, about a gangster in medical college.|Director|2003
+directors|PK|👽📻🚲|A film by Rajkumar Hirani about an alien who asks questions about God.|Director|2014
+directors|DANGAL|🤼‍♀️👨‍👧‍👧🥇|A film by Nitesh Tiwari about a father who trains his daughters as wrestlers.|Director|2016
+directors|KUCH KUCH HOTA HAI|🏀💞🎓|Karan Johar's first film as a director.|Director|1998
+directors|DILWALE DULHANIA LE JAYENGE|🚂🌼💑|Aditya Chopra's first film as a director.|Director|1995
+directors|CHAK DE INDIA|🏑🇮🇳💪|A film by Shimit Amin about a hockey coach and the women's team.|Director|2007
+directors|DIL CHAHTA HAI|🌴🚗🎶|Farhan Akhtar's first film as a director, about three friends from Mumbai.|Director|2001
+directors|ZINDAGI NA MILEGI DOBARA|🏖️🐂🪂|A film by Zoya Akhtar about three friends on a trip to Spain.|Director|2011
+directors|GULLY BOY|🎤🛵🏘️|A film by Zoya Akhtar about a rapper from the Mumbai slums.|Director|2019
+directors|GANGS OF WASSEYPUR|🔫🚂⚫|A film by Anurag Kashyap about a coal mafia feud in Dhanbad.|Director|2012
+directors|SATYA|🔫🏙️🕶️|A film by Ram Gopal Varma about a man who joins the Mumbai underworld.|Director|1998
+directors|BOMBAY|🏙️🔥💑|A film by Mani Ratnam about a couple and the riots in 1993.|Director|1995
+directors|QUEEN|💍✈️🌆|A film by Vikas Bahl about a woman on her honeymoon alone.|Director|2014
+directors|A WEDNESDAY|📞💣🕵️|A film by Neeraj Pandey about a common man and a call to the police chief.|Director|2008
+directors|DRISHYAM|🔪📺👨‍👩‍👧‍👧|A film by Nishikant Kamat about a man who hides a crime to save his family.|Director|2015
+directors|BARFI|🤫🎻🌈|A film by Anurag Basu about a deaf and mute man who spreads joy.|Director|2012
+directors|SWADES|🚀🌾🇮🇳|A film by Ashutosh Gowariker about a NASA engineer in a small village.|Director|2004
+directors|LUNCHBOX|🍱💌🚆|A film by Ritesh Batra about a wrong delivery and letters in a tiffin.|Director|2013
+directors|ANDHADHUN|🎹🕶️🐰|A film by Sriram Raghavan about a blind pianist, or is he?|Director|2018
+directors|HERA PHERI|🧒📞💰|A film by Priyadarshan about three tenants and a call for ransom.|Director|2000
+directors|KAHAANI|🤰🔍🚇|A film by Sujoy Ghosh about a pregnant woman searching Kolkata for her husband.|Director|2012
+directors|ARDH SATYA|👮‍♂️⚖️😠|A film by Govind Nihalani about an angry cop in a corrupt system.|Director|1983
+directors|OMKARA|🎭🔥🍃|A film by Vishal Bhardwaj. Othello set in Uttar Pradesh.|Director|2006
+directors|HAIDER|❄️🎭🕊️|A film by Vishal Bhardwaj. Hamlet set in Kashmir.|Director|2014
+directors|JAANE BHI DO YAARON|📸🏗️🎭|A film by Kundan Shah about two photographers and a corruption plot.|Director|1983
+directors|RANG DE BASANTI|🪁🎓🇮🇳|A film by Rakeysh Omprakash Mehra about students who take on a corrupt system.|Director|2006
+directors|BHAAG MILKHA BHAAG|🏃🥇🇮🇳|A film by Rakeysh Omprakash Mehra about the Flying Sikh.|Director|2013

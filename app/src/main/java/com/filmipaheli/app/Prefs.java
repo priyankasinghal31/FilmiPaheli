@@ -60,6 +60,20 @@ public final class Prefs {
         sp.edit().putStringSet("solved", s).apply();
     }
 
+    // ---- unlocked packs ----
+    public boolean isUnlocked(Pack pack) {
+        return pack.cost == 0 || set("unlocked").contains(pack.id);
+    }
+
+    /** Spends the pack's cost and unlocks it. Returns false if the player cannot afford it. */
+    public boolean unlock(Pack pack) {
+        if (!spendCoins(pack.cost)) return false;
+        Set<String> s = set("unlocked");
+        s.add(pack.id);
+        sp.edit().putStringSet("unlocked", s).apply();
+        return true;
+    }
+
     // ---- days played and streak ----
     public static String dateKey(long millis) {
         return new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(millis);

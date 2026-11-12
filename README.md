@@ -5,13 +5,13 @@ A Bollywood guess-the-film puzzle game for Android, written in Java. Each puzzle
 ## Features
 
 - Emoji and text clues on a movie-ticket card
-- Film packs: 90s Hits, Shah Rukh Khan, Emoji Round, Black & White Classics (Dialogues and Directors are locked placeholders)
+- 500+ Bollywood films in 15 packs: Black & White Classics, 70s & 80s, 90s, 2000s, 2010s, Latest Hits, star packs (Shah Rukh, Aamir, Salman, Amitabh, Akshay), Leading Ladies and an Emoji Round
+- Dialogues and Directors packs unlock with 300 coins
 - Daily puzzle with a +50 coin bonus, and a seven day streak
 - Coins, stars (1 to 3 by hearts left) and saved progress
 - Hints: spend 20 coins, or watch a rewarded ad for a free letter
 - Rewarded ad for an extra life after a loss
 - Ads only run when the player chooses to watch one (no forced ads)
-- 20 sample films in `app/src/main/assets/puzzles.json`
 
 ## Project layout
 
@@ -36,7 +36,19 @@ app/src/main/
 
 ## Add your own films
 
-Add an object to `puzzles.json`. Answers must use capital letters A to Z and single spaces only (write "PK", "MUGHAL E AZAM"). Give it one of the existing `pack` ids, or add a new `Pack` in `Pack.java`.
+Edit the text files in `tools/puzzles/`. One film per line:
+
+```
+pack|ANSWER|emoji|clue|category|year
+```
+
+Answers use capital letters A to Z and single spaces only (write "PK", "MUGHAL E AZAM", "THREE IDIOTS"). A film may repeat only in the `dialogues` and `directors` packs. Then run this from the repo root to rebuild `app/src/main/assets/puzzles.json` and check for mistakes:
+
+```
+python3 tools/build_puzzles.py
+```
+
+Pack ids must match a `Pack` in `Pack.java`. Add a new `Pack` there to add a new pack.
 
 ## Ads
 

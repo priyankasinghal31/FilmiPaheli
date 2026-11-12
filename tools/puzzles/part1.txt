@@ -1,0 +1,117 @@
+# pack|ANSWER|emoji|clue|category|year
+classics|MUGHAL E AZAM|👑🪞💃|Prince Salim loves the courtesan Anarkali. Her song is sung in the Sheesh Mahal.|K. Asif|1960
+classics|MOTHER INDIA|👩‍🌾🐂🌾|Nargis plays a farmer's wife who raises her sons alone through hardship and floods.|Mehboob Khan|1957
+classics|AWARA|🎩⚖️🌙|Raj Kapoor plays a judge's son raised by a criminal. He sings of a drifter with no home.|Raj Kapoor|1951
+classics|PYAASA|📖🎭🥀|A poet's verses are ignored while he lives and loved only after he is thought dead.|Guru Dutt|1957
+classics|KAAGAZ KE PHOOL|🎬📄🌺|A film director rises to fame, then falls into loneliness. A flop that later became a classic.|Guru Dutt|1959
+classics|DO BIGHA ZAMIN|🌾🚲🏙️|A farmer goes to Calcutta and pulls a rickshaw to save his small plot of land.|Bimal Roy|1953
+classics|MADHUMATI|🏔️🔁👻|A man in the hills hears a woman's story across lives. Dilip Kumar and Vyjayanthimala star.|Bimal Roy|1958
+classics|CHALTI KA NAAM GAADI|🚗🔧😂|Three brothers run a garage and a rich lady's car breaks down. Kishore Kumar leads this comedy.|Kishore Kumar|1958
+classics|HOWRAH BRIDGE|🌉🕵️💃|Ashok Kumar and Madhubala in a Calcutta crime thriller. Aaiye Meherbaan plays in a club.|Ashok Kumar|1958
+classics|GANGA JUMNA|🐂👬⚔️|Two brothers in a village take opposite paths. One becomes a policeman and one a dacoit.|Dilip Kumar|1961
+classics|GUIDE|🧭🏜️💃|A tour guide falls for a married dancer. Later he is mistaken for a holy man in a drought-hit village.|Dev Anand|1965
+classics|WAQT|🌋👨‍👩‍👧‍👦🔍|An earthquake splits a rich family. Years later the brothers meet again as strangers.|Yash Chopra|1965
+classics|SANGAM|💞🕊️🇨🇭|Two best friends love the same woman. Raj Kapoor's first colour film.|Raj Kapoor|1964
+classics|BANDINI|🚂🌾🔒|A woman in jail for murder remembers her past. Nutan stars in Bimal Roy's drama.|Bimal Roy|1963
+classics|SUJATA|👧🤝🌸|A girl from the untouchable community is raised in a Brahmin home. Nutan plays her.|Bimal Roy|1959
+classics|CHAUDHVIN KA CHAND|🌙🌹📝|Two friends love the same woman in Lucknow. The title song has been loved for decades.|Guru Dutt|1960
+classics|SAHIB BIBI AUR GHULAM|🏰🍷🕯️|The decline of a Bengal zamindar family told by a servant. Meena Kumari plays the lonely lady.|Meena Kumari|1962
+classics|NAYA DAUR|🐴🚌🌾|A tonga driver races a bus to save the jobs of his village. Dilip Kumar stars.|Dilip Kumar|1957
+classics|JIS DESH MEIN GANGA BEHTI HAI|🌊🕊️🔫|A simple man helps a gang of dacoits return to normal life.|Raj Kapoor|1960
+classics|JUNGLEE|❄️🕺🧣|Shammi Kapoor shouts a famous yodel in the snows of Kashmir.|Shammi Kapoor|1961
+classics|TEESRI MANZIL|🎸🏔️🎶|A drummer hunts for the killer of a woman's sister. R. D. Burman's music is the star.|Shammi Kapoor|1966
+classics|KASHMIR KI KALI|🌷🛶🎶|A rich young man falls for a flower girl in Kashmir. Shammi Kapoor and Sharmila Tagore.|Shammi Kapoor|1964
+classics|HUM DONO|⚔️👬🎖️|Dev Anand plays an army captain and his lookalike. Abhi Na Jao Chhod Kar is the song.|Dev Anand|1961
+classics|ANARKALI|🧱👑🎶|A courtesan loves a prince in Akbar's court and is sentenced to be walled alive.|Pradeep Kumar|1953
+classics|PADOSAN|🎶😜🏠|A simple man is helped by his friends to woo the girl next door. Kishore Kumar plays a singing teacher.|Kishore Kumar|1968
+classics|UPKAR|🌾🪖🇮🇳|A farmer turned soldier. Manoj Kumar plays a patriotic hero in this Jai Jawan Jai Kisan film.|Manoj Kumar|1967
+classics|MERA SAAYA|👻⚖️🎶|A woman on trial looks like a dead woman. Sadhana plays two roles with a famous title song.|Sadhana|1966
+classics|WOH KAUN THI|🌧️👻🚗|A lonely woman in white appears on a rainy highway. A mystery with Sadhana.|Sadhana|1964
+classics|BAIJU BAWRA|🎶🔥🌅|A singer wants to avenge his father by defeating Tansen in a musical contest.|Bharat Bhushan|1952
+classics|CHORI CHORI|🌧️🚌💞|A runaway heiress and a reporter meet on a bus journey. Raj Kapoor and Nargis star.|Raj Kapoor|1956
+classics|ANDAZ|🎾💔📞|A love triangle between Dilip Kumar, Raj Kapoor and Nargis.|Mehboob Khan|1949
+classics|MAHAL|🏚️👻🎶|A young man falls for a woman in an old mansion. Ayega Aanewala is the song.|Ashok Kumar|1949
+classics|BARSAAT|🌧️🎻💘|Raj Kapoor and Nargis in an early romance. The famous pose became the studio logo.|Raj Kapoor|1949
+classics|AAR PAAR|🚕🎩🎶|A taxi driver gets mixed up with crooks. Guru Dutt directs and stars.|Guru Dutt|1954
+classics|ANARI|🎨💊❤️|A kind-hearted painter is wrongly accused of a crime. Raj Kapoor stars with Nutan.|Raj Kapoor|1959
+classics|AMRAPALI|👸🕉️🎶|Vyjayanthimala plays a courtesan loved by a king. A tale of ancient Vaishali.|Vyjayanthimala|1966
+classics|AARADHANA|🚂🏍️🌹|Rajesh Khanna became a superstar after this. Mere Sapno Ki Rani plays on a train.|Rajesh Khanna|1969
+retro|ANAND|🩺🎈😊|Rajesh Khanna plays a cheerful man with a serious illness. "Babumoshai, zindagi badi honi chahiye."|Rajesh Khanna|1971
+retro|PAKEEZAH|🚂👣💃|A courtesan's feet are admired on a train. Meena Kumari's last great film took years to finish.|Meena Kumari|1972
+retro|BOBBY|🏍️🌊🎶|A teenage romance between a rich boy and a fisherman's daughter. Rishi Kapoor's first film as a hero.|Raj Kapoor|1973
+retro|HAATHI MERE SAATHI|🐘🌲🎶|Rajesh Khanna's four elephants are his best friends in this family film.|Rajesh Khanna|1971
+retro|KATI PATANG|🪁💔👰|A young widow pretends to be someone else to find a home. Asha Parekh and Rajesh Khanna.|Rajesh Khanna|1971
+retro|AMAR PREM|🌹🚣🎶|Rajesh Khanna and Sharmila Tagore. A man says that people will always talk.|Rajesh Khanna|1972
+retro|SEETA AUR GEETA|👭🔄🤠|Hema Malini plays twin sisters separated at birth. One is meek, the other is bold.|Hema Malini|1972
+retro|CHUPKE CHUPKE|🚗🎓🤫|A professor pretends to be a driver to fool his wife's family. Dharmendra leads this comedy.|Hrishikesh Mukherjee|1975
+retro|GOLMAAL|😂🥸👨|Amol Palekar pretends to have a twin to keep his strict boss happy.|Hrishikesh Mukherjee|1979
+retro|CHASHME BADDOOR|👓🏠😆|Three bachelor friends in Delhi chase their new neighbour. A girl, a prank and a lie.|Sai Paranjpye|1981
+retro|JAANE BHI DO YAARON|📸🏗️🎭|Two photographers uncover a corruption plot. The Mahabharata scene is a classic.|Kundan Shah|1983
+retro|ARDH SATYA|👮‍♂️⚖️😠|Om Puri plays an angry cop trapped in a corrupt system.|Govind Nihalani|1983
+retro|MASOOM|👧👨‍👩‍👦🎶|A married man learns he has a son from an old affair. Tujhse Naraaz Nahin Zindagi is the song.|Shekhar Kapur|1983
+retro|SAAGAR|🌊📸🎶|Rishi Kapoor, Dimple Kapadia and Kamal Haasan in a coastal love triangle.|Ramesh Sippy|1985
+retro|MR INDIA|🕶️⌚👶|A man with an invisible wristwatch fights Mogambo. Sridevi sings Kate Nahin Kat Te.|Shekhar Kapur|1987
+retro|TEZAAB|💃🔪🌆|Madhuri Dixit dances to a number song that made her a star. Anil Kapoor plays Munna.|N. Chandra|1988
+retro|CHANDNI|🌸🎻🇨🇭|Sridevi in white. Rishi Kapoor and Vinod Khanna star in Yash Chopra's romance.|Yash Chopra|1989
+retro|KARZ|🎸🔁🔔|A rock star remembers his past life. Rishi Kapoor sings on stage.|Subhash Ghai|1980
+retro|KHOOBSURAT|👑🏠🎓|A free-spirited girl shakes up a strict household. Rekha shines in this comedy.|Hrishikesh Mukherjee|1980
+retro|UMRAO JAAN|💃🎶🕯️|A courtesan in Lucknow looks back on her life. Rekha's eyes and Asha Bhosle's songs.|Rekha|1981
+retro|EK DUUJE KE LIYE|🥥💔🌊|A Tamil boy and a north Indian girl cannot be together. Kamal Haasan's Hindi debut.|K. Balachander|1981
+retro|RAAM TERI GANGA MAILI|🌊🏔️💧|A woman from the hills and a man from Calcutta. A bold film of the mid 1980s.|Raj Kapoor|1985
+retro|NAAM|🎤🕶️💔|Sanjay Dutt plays a man who is pulled into the underworld.|Sanjay Dutt|1986
+retro|DISCO DANCER|🕺🪩🇷🇺|Mithun Chakraborty's Jimmy Jimmy was a huge hit in the USSR.|Mithun Chakraborty|1982
+retro|SHAAN|🏝️🕵️🔥|Three men hunt a villain with a bald head in a lair. Made by the makers of Sholay.|Ramesh Sippy|1980
+retro|HERO|🥊🌹🎶|Jackie Shroff's first starring role. A gangster is changed by love.|Subhash Ghai|1983
+retro|BETAAB|❄️🏔️🎶|Sunny Deol and Amrita Singh debuted in this romance set in the hills.|Sunny Deol|1983
+retro|PARINDA|🕊️🔫🌆|Two brothers and a gangster in Bombay. Nana Patekar plays a villain.|Vidhu Vinod Chopra|1989
+retro|ARTH|💔📝🏠|A wife is left by her husband for another woman and finds her own strength. Shabana Azmi and Smita Patil.|Shabana Azmi|1982
+retro|SAARANSH|👴😢📜|An old couple mourns their dead son. Anupam Kher's first film role.|Mahesh Bhatt|1984
+retro|MIRCH MASALA|🌶️🏭👩|Women in a spice factory stand up to a tax officer. Smita Patil leads.|Ketan Mehta|1987
+retro|JULIE|👩🏻‍🦰🎶🚤|A teenager's family breaks apart when she is expecting a child. Lakshmi plays the title role.|Lakshmi|1975
+retro|RAJNIGANDHA|💐🌸💞|A woman must choose between two men. A gentle romance based on a Hindi short story.|Basu Chatterjee|1974
+retro|CHHOTI SI BAAT|🚌🏍️😂|A shy man gets help from a colonel to win the girl he likes.|Basu Chatterjee|1976
+retro|MANTHAN|🥛🐄🏘️|Villagers in Gujarat each gave two rupees to fund this film about the milk cooperative.|Shyam Benegal|1976
+retro|ANKUR|🌱🏡👩|Shabana Azmi's debut. A landlord's affair with a servant in Telangana.|Shyam Benegal|1974
+retro|LOVE STORY|🎓💍💔|Rajendra Kumar launched his son Kumar Gaurav in this college romance.|Kumar Gaurav|1981
+retro|SADMA|🧠🌹🥺|Sridevi plays a woman who loses her memory and behaves like a child. Kamal Haasan stars.|Kamal Haasan|1983
+retro|NAGINA|🐍💍🎶|Sridevi plays a snake woman who can change form. Main Teri Dushman is the song.|Sridevi|1986
+retro|CHAALBAAZ|👭🤪🎬|Sridevi plays twins named Anju and Manju. Rajinikanth and Sunny Deol star.|Sridevi|1989
+retro|QURBANI|🕶️🎸🎶|Feroz Khan's stylish action film. Zeenat Aman and Vinod Khanna star. Aap Jaisa Koi is the song.|Feroz Khan|1980
+retro|YAADON KI BAARAAT|📻👬🎶|Three brothers separated in childhood find each other through a song. Chura Liya Hai Tumne.|Nasir Hussain|1973
+retro|AANDHI|🗳️🌹🕯️|A politician and her estranged husband meet again at a hotel. Suchitra Sen and Sanjeev Kumar.|Gulzar|1975
+retro|IJAAZAT|🚉🌧️💌|Two former partners meet by chance at a railway waiting room. Mera Kuchh Saaman is the song.|Gulzar|1987
+retro|SATYAM SHIVAM SUNDARAM|🔥🕉️🎶|A village woman scarred on one side of her face. Zeenat Aman and Shashi Kapoor.|Raj Kapoor|1978
+retro|PREM ROG|🌸👰😢|A young widow and a boy from a rich family fall in love. Padmini Kolhapure and Rishi Kapoor.|Raj Kapoor|1982
+90s|AASHIQUI|🎤💔🌃|A young singer rises while his lover waits. Nadeem Shravan's songs ruled 1990.|Rahul Roy|1990
+90s|SAAJAN|✍️🎶💞|Two best friends love the same woman, and one of them writes her anonymous poems. Sanjay Dutt and Salman Khan.|Sanjay Dutt|1991
+90s|LAMHE|🏜️🔁👩|Sridevi plays a mother and daughter in Rajasthan and London. Anil Kapoor falls for both.|Yash Chopra|1991
+90s|BETA|👵🛍️👰|Anil Kapoor marries a woman and his stepmother's trouble begins. Madhuri's Dhak Dhak song.|Anil Kapoor|1992
+90s|DAMINI|⚖️🧑‍⚖️👩|A woman fights for justice for her maid. "Tareekh pe tareekh" says Sunny Deol.|Rajkumar Santoshi|1993
+90s|KHALNAYAK|🎶🔫🕶️|Sanjay Dutt is the villain with a gun. Choli Ke Peeche was a huge hit.|Subhash Ghai|1993
+90s|KRANTIVEER|🧨🎤📢|Nana Patekar plays an angry man who turns into a rebel.|Nana Patekar|1994
+90s|BOMBAY|🏙️🔥💑|A Hindu boy and a Muslim girl marry. Riots follow in the city. A. R. Rahman's score.|Mani Ratnam|1995
+90s|BANDIT QUEEN|🔫👸🏞️|The true story of Phoolan Devi, who rose from a village girl to a dacoit.|Shekhar Kapur|1994
+90s|FIRE|🔥👭🏠|Two women in a joint family find love in each other. Controversial in India in 1998.|Deepa Mehta|1996
+90s|TAAL|🎻🌧️🌾|A musician from Chandigarh and a village girl. A. R. Rahman's music and Aishwarya Rai.|Subhash Ghai|1999
+90s|BORDER|🪖🏜️🇮🇳|Soldiers hold a desert post at Longewala through one night. Sandese Aate Hain is the song.|J. P. Dutta|1997
+90s|GHATAK|⚡👨‍🦱🥊|Sunny Deol plays a butcher's son who fights the villain Katya.|Sunny Deol|1996
+90s|SATYA|🔫🏙️🕶️|A man arrives in Mumbai and joins the underworld. Ram Gopal Varma's gangster film.|Ram Gopal Varma|1998
+90s|ZAKHM|🔥💔👩|A son tries to find the truth about his mother's past. Ajay Devgn and Pooja Bhatt.|Mahesh Bhatt|1998
+90s|DUSHMAN|👭🔪😡|Kajol plays twin sisters. One is murdered and the other seeks revenge. Sanjay Dutt hunts the killer.|Kajol|1998
+90s|SOLDIER|🪖🔫💥|Bobby Deol plays a man who looks for revenge in this thriller.|Bobby Deol|1998
+90s|GUPT|🎭🔪🕶️|Bobby Deol is accused of murder. Who is the real killer? Kajol plays the woman he loves.|Bobby Deol|1997
+90s|VIRASAT|🏠🔫🌾|Anil Kapoor returns from London to take over his father's village and its feud.|Anil Kapoor|1997
+90s|JUDAAI|💰💔🏠|A woman is paid to leave her husband. Sridevi, Anil Kapoor and Urmila Matondkar.|Sridevi|1997
+90s|HASEENA MAAN JAYEGI|😂💍🕶️|A comedy of confusion. Govinda, Sanjay Dutt and Karisma Kapoor.|Govinda|1999
+90s|PHOOL AUR KAANTE|🏍️🌹🌵|Ajay Devgn made his entry standing on two motorbikes. This film made him a star.|Ajay Devgn|1991
+90s|AAINA|🪞🎶💍|Juhi Chawla, Amrita Singh and Jackie Shroff in a romantic drama.|Juhi Chawla|1993
+90s|JEET|🔫💍🎶|Sunny Deol, Salman Khan and Karisma Kapoor in a love triangle with a hitman.|Sunny Deol|1996
+90s|MAACHIS|🪖🕯️💔|A group of men in Punjab join militants after police torture. Tabu stars in Gulzar's film.|Tabu|1996
+90s|SAPNE|🎶💑🏍️|Kajol, Arvind Swamy and Prabhu Deva with A. R. Rahman's music.|Kajol|1997
+90s|LAADLA|🎓👩‍💼👨|Anil Kapoor and Sridevi in a comedy about a woman who runs the family.|Anil Kapoor|1994
+90s|ISHQ|🎶🚁💍|Aamir Khan, Ajay Devgn, Juhi Chawla and Kajol in a college romance comedy.|Aamir Khan|1997
+90s|KHAMOSHI|🔇🎶🌊|A hearing-impaired couple's daughter loves music. Sanjay Leela Bhansali's debut with Manisha Koirala.|Sanjay Leela Bhansali|1996
+90s|DULHE RAJA|🤵😂🍽️|Govinda plays a poor cook who competes with a rich hotel owner. Raveena Tandon co-stars.|Govinda|1998
+90s|SAJAN CHALE SASURAL|🏠🤥😂|Govinda lies to his wife's family about being married. Karisma Kapoor stars.|Govinda|1996
+90s|RAAJA BABU|👑😂🏡|Govinda plays a village rascal. Karisma Kapoor and Shakti Kapoor.|Govinda|1994
+90s|RAJA|👑💃🎶|Madhuri Dixit and Sanjay Kapoor in a rich girl poor boy romance.|Madhuri Dixit|1995

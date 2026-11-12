@@ -161,14 +161,23 @@ public class HomeActivity extends AppCompatActivity {
             h.name.setText(pack.name);
             h.glyph.setText(pack.glyph);
 
-            if (pack.isLocked()) {
+            if (!prefs.isUnlocked(pack)) {
+                h.root.setBackgroundResource(R.drawable.bg_pack_lock);
                 h.lock.setVisibility(View.VISIBLE);
                 h.bar.setVisibility(View.GONE);
-                h.meta.setText(pack.cost + " coins");
+                h.meta.setText("Unlock for " + pack.cost + " coins");
                 h.name.setTextColor(getColor(R.color.dim));
                 h.meta.setTextColor(getColor(R.color.dim));
-                h.root.setOnClickListener(v -> Toast.makeText(HomeActivity.this,
-                        "Unlock with " + pack.cost + " coins. Coming soon.", Toast.LENGTH_SHORT).show());
+                h.root.setOnClickListener(v -> {
+                    if (prefs.unlock(pack)) {
+                        Toast.makeText(HomeActivity.this, pack.name + " unlocked!", Toast.LENGTH_SHORT).show();
+                        refresh();
+                    } else {
+                        Toast.makeText(HomeActivity.this,
+                                "You need " + pack.cost + " coins. Solve more films to earn them.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
                 return;
             }
 
