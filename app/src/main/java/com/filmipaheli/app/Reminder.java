@@ -43,7 +43,7 @@ public final class Reminder {
                 .setInitialDelay(delay, TimeUnit.MILLISECONDS)
                 .build();
         WorkManager.getInstance(ctx).enqueueUniquePeriodicWork(
-                WORK_NAME, ExistingPeriodicWorkPolicy.UPDATE, request);
+                WORK_NAME, ExistingPeriodicWorkPolicy.KEEP, request);
     }
 
     public static void cancel(Context ctx) {
