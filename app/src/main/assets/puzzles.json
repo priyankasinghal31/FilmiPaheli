@@ -1,0 +1,25 @@
+[
+  {"id":"90s-01","pack":"90s","answer":"RANGEELA","emoji":"🎨💃🎬","clue":"Aamir Khan is a street smart tapori in this A. R. Rahman musical. Urmila Matondkar wants to be a star.","category":"Aamir Khan","year":"1995"},
+  {"id":"90s-02","pack":"90s","answer":"BORDER","emoji":"🪖🏜️🇮🇳","clue":"Soldiers hold a desert post at Longewala through one long night. Sandese Aate Hain is the song.","category":"War drama","year":"1997"},
+  {"id":"90s-03","pack":"90s","answer":"KUCH KUCH HOTA HAI","emoji":"🏀💞🎓","clue":"Rahul, Anjali and Tina at a college basketball court. Tum paas aaye plays in the background.","category":"Karan Johar","year":"1998"},
+  {"id":"90s-04","pack":"90s","answer":"SARFAROSH","emoji":"🕵️🎤🔫","clue":"An IPS officer fights cross-border arms smugglers. Jagjit Singh sings a ghazal in it.","category":"Aamir Khan","year":"1999"},
+  {"id":"90s-05","pack":"90s","answer":"DIL TO PAGAL HAI","emoji":"💃🎭❤️","clue":"A stage dance troupe, a hero named Rahul, and a question about whether destiny is real.","category":"Yash Chopra","year":"1997"},
+
+  {"id":"srk-01","pack":"srk","answer":"DIL SE","emoji":"💗🚂🎶","clue":"Shah Rukh Khan chases Manisha Koirala. Chaiyya Chaiyya plays on top of a train.","category":"Shah Rukh Khan","year":"1998"},
+  {"id":"srk-02","pack":"srk","answer":"BAAZIGAR","emoji":"🎲🏢😈","clue":"Shah Rukh Khan plays a man with a secret revenge plan. He says, \"Haar kar jeetne wale ko baazigar kehte hain.\"","category":"Shah Rukh Khan","year":"1993"},
+  {"id":"srk-03","pack":"srk","answer":"DARR","emoji":"😨📞🏔️","clue":"An obsessed lover stalks Juhi Chawla and stammers \"K-k-k-Kiran\".","category":"Shah Rukh Khan","year":"1993"},
+  {"id":"srk-04","pack":"srk","answer":"DEVDAS","emoji":"🍷💔🏚️","clue":"A man loses the woman he loves and drinks himself to ruin. Madhuri Dixit dances in a grand haveli.","category":"Shah Rukh Khan","year":"2002"},
+  {"id":"srk-05","pack":"srk","answer":"SWADES","emoji":"🚀🌾🇮🇳","clue":"A NASA engineer returns to a small village and ends up building a power plant for it.","category":"Shah Rukh Khan","year":"2004"},
+
+  {"id":"emj-01","pack":"emoji","answer":"LAGAAN","emoji":"🏏🌾☀️","clue":"Villagers play cricket against the British to cancel their tax.","category":"Aamir Khan","year":"2001"},
+  {"id":"emj-02","pack":"emoji","answer":"DANGAL","emoji":"🤼‍♀️👨‍👧‍👧🥇","clue":"A father trains his two daughters to become wrestling champions.","category":"Aamir Khan","year":"2016"},
+  {"id":"emj-03","pack":"emoji","answer":"PK","emoji":"👽📻🚲","clue":"An alien lands in Rajasthan, loses his remote and asks everyone one question.","category":"Aamir Khan","year":"2014"},
+  {"id":"emj-04","pack":"emoji","answer":"KRRISH","emoji":"🦸‍♂️👽🔥","clue":"A young man with special powers wears a mask to save people.","category":"Hrithik Roshan","year":"2006"},
+  {"id":"emj-05","pack":"emoji","answer":"ZINDAGI NA MILEGI DOBARA","emoji":"🏖️🐂🪂","clue":"Three friends take a bachelor road trip across Spain. Skydiving and bull running included.","category":"Hrithik Roshan","year":"2011"},
+
+  {"id":"cls-01","pack":"classics","answer":"SHOLAY","emoji":"🐎🔫🏜️","clue":"Gabbar Singh asks, \"Kitne aadmi the?\" in this blockbuster.","category":"Classics","year":"1975"},
+  {"id":"cls-02","pack":"classics","answer":"ANAND","emoji":"🩺🎈😊","clue":"Rajesh Khanna plays a cheerful patient. \"Babumoshai, zindagi badi honi chahiye, lambi nahi.\"","category":"Classics","year":"1971"},
+  {"id":"cls-03","pack":"classics","answer":"MUGHAL E AZAM","emoji":"👑🪞💃","clue":"Prince Salim loves the courtesan Anarkali. Pyar Kiya To Darna Kya is sung in the Sheesh Mahal.","category":"Classics","year":"1960"},
+  {"id":"cls-04","pack":"classics","answer":"MOTHER INDIA","emoji":"👩‍🌾🐂🌾","clue":"Nargis plays a mother who raises her sons alone through a brutal life in the village.","category":"Classics","year":"1957"},
+  {"id":"cls-05","pack":"classics","answer":"DEEWAAR","emoji":"🧱🔢🏙️","clue":"Two brothers on opposite sides of the law. \"Mere paas maa hai.\"","category":"Classics","year":"1975"}
+]

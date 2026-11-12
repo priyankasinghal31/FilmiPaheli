@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ink">#170E2B</color>
+    <color name="ink2">#21143B</color>
+    <color name="panel">#2E1B52</color>
+    <color name="line">#44306F</color>
+    <color name="cream">#FFF0D2</color>
+    <color name="cream2">#F2DDB2</color>
+    <color name="marigold">#FFB224</color>
+    <color name="marigold_dark">#A46D00</color>
+    <color name="rani">#F0386B</color>
+    <color name="rani_dark">#8F1C3E</color>
+    <color name="teal">#19C3A6</color>
+    <color name="teal_dark">#0C7F6B</color>
+    <color name="dim">#B9ABDB</color>
+    <color name="glow">#3B2272</color>
+</resources>
