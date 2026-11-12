@@ -1,20 +1,16 @@
 package com.filmipaheli.app;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Calendar;
 import java.util.List;
@@ -24,10 +20,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private Prefs prefs;
     private PuzzleRepository repo;
-    private TextView coinText, streakText, dailyStatus, streakTitle;
+    private TextView coinText, streakText, dailyStatus, streakTitle, dailyBadge;
     private Button btnDaily;
-    private LinearLayout dailyTiles, weekRow;
-    private RecyclerView.Adapter<?> adapter;
+    private LinearLayout dailyTiles, weekRow, packList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +35,14 @@ public class HomeActivity extends AppCompatActivity {
         streakText = findViewById(R.id.streakText);
         streakTitle = findViewById(R.id.streakTitle);
         dailyStatus = findViewById(R.id.dailyStatus);
+        dailyBadge = findViewById(R.id.dailyBadge);
         btnDaily = findViewById(R.id.btnDaily);
         dailyTiles = findViewById(R.id.dailyTiles);
         weekRow = findViewById(R.id.weekRow);
+        packList = findViewById(R.id.packList);
 
-        RecyclerView rv = findViewById(R.id.packList);
-        rv.setLayoutManager(new GridLayoutManager(this, 2));
-        rv.setNestedScrollingEnabled(false);
-        adapter = new PackAdapter();
-        rv.setAdapter(adapter);
+        findViewById(R.id.btnSettings).setOnClickListener(v ->
+                startActivity(new Intent(this, SettingsActivity.class)));
 
         btnDaily.setOnClickListener(v -> {
             Puzzle d = repo.daily();
@@ -70,14 +64,15 @@ public class HomeActivity extends AppCompatActivity {
         coinText.setText(String.valueOf(prefs.coins()));
         int streak = prefs.streak();
         streakText.setText(String.valueOf(streak));
-        streakTitle.setText(streak == 1 ? "Your streak: 1 day" : "Your streak: " + streak + " days");
+        streakTitle.setText(getResources().getQuantityString(R.plurals.streak_days, streak, streak));
         buildDailyTiles();
         buildWeek();
 
-        boolean done = prefs.dailyDone();
-        btnDaily.setText(done ? "Play again" : "Play · +50");
-        dailyStatus.setText(done ? "Done today" : "New film in " + timeToMidnight());
-        adapter.notifyDataSetChanged();
+        boolean played = prefs.dailyPlayed();
+        dailyBadge.setVisibility(played ? View.VISIBLE : View.GONE);
+        btnDaily.setText(played ? R.string.daily_play_again : R.string.daily_play);
+        dailyStatus.setText(getString(R.string.daily_new_in, timeToMidnight()));
+        buildPacks();
     }
 
     private String timeToMidnight() {
@@ -113,7 +108,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void buildWeek() {
         weekRow.removeAllViews();
-        String[] names = {"M", "T", "W", "T", "F", "S", "S"};
+        String[] names = getResources().getStringArray(R.array.day_letters);
         Calendar c = Calendar.getInstance();
         int mondayBased = (c.get(Calendar.DAY_OF_WEEK) + 5) % 7;
         String today = Prefs.today();
@@ -129,9 +124,9 @@ public class HomeActivity extends AppCompatActivity {
                 circle.setText("✓");
             } else if (key.equals(today)) {
                 circle.setBackgroundResource(R.drawable.bg_day_today);
-                circle.setTextColor(getColor(R.color.marigold));
+                circle.setTextColor(getColor(R.color.accent));
                 circle.setText("?");
-                label.setTextColor(getColor(R.color.marigold));
+                label.setTextColor(getColor(R.color.accent));
             } else {
                 circle.setBackgroundResource(R.drawable.bg_day);
             }
@@ -140,83 +135,77 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private int dp(int v) {
-        return Math.round(v * getResources().getDisplayMetrics().density);
+    /** Shows every pack, two per row. Built by hand so none can be cut off. */
+    private void buildPacks() {
+        packList.removeAllViews();
+        List<Pack> all = Pack.ALL;
+        for (int i = 0; i < all.size(); i += 2) {
+            LinearLayout row = new LinearLayout(this);
+            row.setOrientation(LinearLayout.HORIZONTAL);
+            for (int j = i; j < i + 2; j++) {
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, dp(124), 1f);
+                lp.setMargins(dp(6), dp(6), dp(6), dp(6));
+                if (j < all.size()) {
+                    row.addView(makePackCard(all.get(j), row), lp);
+                } else {
+                    row.addView(new View(this), lp); // keeps the last card the same width
+                }
+            }
+            packList.addView(row, new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        }
     }
 
-    // ---------------------------------------------------------------- packs
+    private View makePackCard(Pack pack, LinearLayout parent) {
+        View card = LayoutInflater.from(this).inflate(R.layout.item_pack, parent, false);
+        TextView name = card.findViewById(R.id.packName);
+        TextView glyph = card.findViewById(R.id.packGlyph);
+        TextView meta = card.findViewById(R.id.packMeta);
+        ProgressBar bar = card.findViewById(R.id.packBar);
+        View lock = card.findViewById(R.id.packLock);
 
-    private class PackAdapter extends RecyclerView.Adapter<PackAdapter.Holder> {
+        card.setBackgroundResource(pack.background);
+        name.setText(pack.nameRes);
+        glyph.setText(pack.glyph);
 
-        @NonNull
-        @Override
-        public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new Holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pack, parent, false));
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull Holder h, int position) {
-            Pack pack = Pack.ALL.get(position);
-            h.root.setBackgroundResource(pack.background);
-            h.name.setText(pack.name);
-            h.glyph.setText(pack.glyph);
-
-            if (!prefs.isUnlocked(pack)) {
-                h.root.setBackgroundResource(R.drawable.bg_pack_lock);
-                h.lock.setVisibility(View.VISIBLE);
-                h.bar.setVisibility(View.GONE);
-                h.meta.setText("Unlock for " + pack.cost + " coins");
-                h.name.setTextColor(getColor(R.color.dim));
-                h.meta.setTextColor(getColor(R.color.dim));
-                h.root.setOnClickListener(v -> {
-                    if (prefs.unlock(pack)) {
-                        Toast.makeText(HomeActivity.this, pack.name + " unlocked!", Toast.LENGTH_SHORT).show();
-                        refresh();
-                    } else {
-                        Toast.makeText(HomeActivity.this,
-                                "You need " + pack.cost + " coins. Solve more films to earn them.",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
-                return;
-            }
-
-            List<Puzzle> list = repo.inPack(pack.id);
-            int solved = prefs.solvedCount(list);
-            h.lock.setVisibility(View.GONE);
-            h.bar.setVisibility(View.VISIBLE);
-            h.bar.setMax(Math.max(1, list.size()));
-            h.bar.setProgress(solved);
-            h.name.setTextColor(getColor(R.color.cream));
-            h.meta.setTextColor(0xD9FFF0D2);
-            h.meta.setText(solved == 0 ? "New · " + list.size() + " films" : solved + " / " + list.size() + " solved");
-            h.root.setOnClickListener(v -> {
-                Intent i = new Intent(HomeActivity.this, GameActivity.class);
-                i.putExtra(GameActivity.EX_PACK, pack.id);
-                startActivity(i);
+        if (!prefs.isUnlocked(pack)) {
+            card.setBackgroundResource(R.drawable.bg_pack_lock);
+            lock.setVisibility(View.VISIBLE);
+            bar.setVisibility(View.GONE);
+            meta.setText(getString(R.string.pack_unlock, pack.cost));
+            name.setTextColor(getColor(R.color.dim));
+            meta.setTextColor(getColor(R.color.dim));
+            card.setOnClickListener(v -> {
+                if (prefs.unlock(pack)) {
+                    Toast.makeText(this, getString(R.string.pack_unlocked_toast, getString(pack.nameRes)),
+                            Toast.LENGTH_SHORT).show();
+                    refresh();
+                } else {
+                    Toast.makeText(this, getString(R.string.pack_need_coins, pack.cost),
+                            Toast.LENGTH_SHORT).show();
+                }
             });
+            return card;
         }
 
-        @Override
-        public int getItemCount() {
-            return Pack.ALL.size();
-        }
+        List<Puzzle> list = repo.inPack(pack.id);
+        int solved = prefs.solvedCount(list);
+        lock.setVisibility(View.GONE);
+        bar.setVisibility(View.VISIBLE);
+        bar.setMax(Math.max(1, list.size()));
+        bar.setProgress(solved);
+        meta.setText(solved == 0
+                ? getString(R.string.pack_new, list.size())
+                : getString(R.string.pack_progress, solved, list.size()));
+        card.setOnClickListener(v -> {
+            Intent i = new Intent(this, GameActivity.class);
+            i.putExtra(GameActivity.EX_PACK, pack.id);
+            startActivity(i);
+        });
+        return card;
+    }
 
-        class Holder extends RecyclerView.ViewHolder {
-            final View root;
-            final TextView name, glyph, meta;
-            final ProgressBar bar;
-            final View lock;
-
-            Holder(@NonNull View v) {
-                super(v);
-                root = v.findViewById(R.id.packRoot);
-                name = v.findViewById(R.id.packName);
-                glyph = v.findViewById(R.id.packGlyph);
-                meta = v.findViewById(R.id.packMeta);
-                bar = v.findViewById(R.id.packBar);
-                lock = v.findViewById(R.id.packLock);
-            }
-        }
+    private int dp(int v) {
+        return Math.round(v * getResources().getDisplayMetrics().density);
     }
 }

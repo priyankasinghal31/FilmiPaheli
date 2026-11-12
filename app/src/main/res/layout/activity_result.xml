@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:gravity="center"
-        android:textColor="@color/marigold"
+        android:textColor="@color/accent"
         android:textSize="44sp"
         android:textStyle="bold" />
 
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textColor="@color/marigold"
+            android:textColor="@color/accent"
             android:textSize="22sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -108,9 +108,9 @@
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:stateListAnimator="@null"
-        android:text="Watch ad for an extra life"
+        android:text="@string/extra_life"
         android:textAllCaps="false"
-        android:textColor="@color/cream"
+        android:textColor="@color/text"
         android:textSize="15sp"
         android:textStyle="bold"
         android:visibility="gone" />
@@ -122,9 +122,9 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/btn_ghost"
         android:stateListAnimator="@null"
-        android:text="Back to home"
+        android:text="@string/back_home"
         android:textAllCaps="false"
-        android:textColor="@color/cream"
+        android:textColor="@color/text"
         android:textSize="15sp"
         android:textStyle="bold" />
 </LinearLayout>

@@ -6,15 +6,15 @@ import java.util.List;
 /** A themed group of puzzles shown as a card on the home screen. */
 public class Pack {
     public final String id;
-    public final String name;
+    public final int nameRes;
     public final String glyph;
     public final int background;
     /** Coins needed to unlock. 0 means the pack is open from the start. */
     public final int cost;
 
-    public Pack(String id, String name, String glyph, int background, int cost) {
+    public Pack(String id, int nameRes, String glyph, int background, int cost) {
         this.id = id;
-        this.name = name;
+        this.nameRes = nameRes;
         this.glyph = glyph;
         this.background = background;
         this.cost = cost;
@@ -27,21 +27,21 @@ public class Pack {
 
     /** Pack ids must match the 'pack' field in assets/puzzles.json. */
     public static final List<Pack> ALL = Arrays.asList(
-            new Pack("classics", "Black & White Classics", "क्लासिक", D, 0),
-            new Pack("retro", "70s & 80s", "७०", A, 0),
-            new Pack("90s", "90s Hits", "९०", B, 0),
-            new Pack("2000s", "2000s", "२०००", C, 0),
-            new Pack("2010s", "2010s", "२०१०", D, 0),
-            new Pack("new", "Latest Hits", "नई", A, 0),
-            new Pack("srk", "Shah Rukh Khan", "SRK", B, 0),
-            new Pack("aamir", "Aamir Khan", "आमिर", C, 0),
-            new Pack("salman", "Salman Khan", "भाई", D, 0),
-            new Pack("bigb", "Amitabh Bachchan", "बिग B", A, 0),
-            new Pack("akshay", "Akshay Kumar", "खिलाड़ी", B, 0),
-            new Pack("heroines", "Leading Ladies", "नायिका", C, 0),
-            new Pack("emoji", "Emoji Round", "🎬", D, 0),
-            new Pack("dialogues", "Dialogues", "संवाद", R.drawable.bg_pack_lock, 300),
-            new Pack("directors", "Directors", "निर्देशक", R.drawable.bg_pack_lock, 300)
+            new Pack("classics", R.string.pack_classics, "क्लासिक", D, 0),
+            new Pack("retro", R.string.pack_retro, "७०", A, 0),
+            new Pack("90s", R.string.pack_90s, "९०", B, 0),
+            new Pack("2000s", R.string.pack_2000s, "२०००", C, 0),
+            new Pack("2010s", R.string.pack_2010s, "२०१०", D, 0),
+            new Pack("new", R.string.pack_new_hits, "नई", A, 0),
+            new Pack("srk", R.string.pack_srk, "SRK", B, 0),
+            new Pack("aamir", R.string.pack_aamir, "आमिर", C, 0),
+            new Pack("salman", R.string.pack_salman, "भाई", D, 0),
+            new Pack("bigb", R.string.pack_bigb, "बिग B", A, 0),
+            new Pack("akshay", R.string.pack_akshay, "खिलाड़ी", B, 0),
+            new Pack("heroines", R.string.pack_heroines, "नायिका", C, 0),
+            new Pack("emoji", R.string.pack_emoji, "🎬", D, 0),
+            new Pack("dialogues", R.string.pack_dialogues, "संवाद", R.drawable.bg_pack_lock, 300),
+            new Pack("directors", R.string.pack_directors, "निर्देशक", R.drawable.bg_pack_lock, 300)
     );
 
     public static Pack byId(String id) {

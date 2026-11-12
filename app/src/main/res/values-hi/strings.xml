@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">फ़िल्मी पहेली</string>
+    <string name="brand_title">फ़िल्मी पहेली</string>
+    <string name="brand_sub">Filmi Paheli</string>
+
+    <string name="daily_eyebrow">आज की पहेली</string>
+    <string name="daily_title">आज की फ़िल्म, एक सुराग</string>
+    <string name="daily_play">खेलें · +50</string>
+    <string name="daily_play_again">फिर खेलें</string>
+    <string name="daily_new_in">नई फ़िल्म %1$s में</string>
+    <string name="daily_played">✓ आज खेला</string>
+    <plurals name="streak_days">
+        <item quantity="one">आपकी लगातार जीत: %d दिन</item>
+        <item quantity="other">आपकी लगातार जीत: %d दिन</item>
+    </plurals>
+    <string-array name="day_letters">
+        <item>सो</item><item>मं</item><item>बु</item><item>गु</item><item>शु</item><item>श</item><item>र</item>
+    </string-array>
+    <string name="streak_title_placeholder">आपकी लगातार जीत</string>
+    <string name="packs_title">फ़िल्म पैक</string>
+    <string name="pack_new">नया · %1$d फ़िल्में</string>
+    <string name="pack_progress">%1$d / %2$d हल किए</string>
+    <string name="pack_unlock">%1$d सिक्कों में खोलें</string>
+    <string name="pack_unlocked_toast">%1$s खुल गया!</string>
+    <string name="pack_need_coins">आपको %1$d सिक्के चाहिए। और फ़िल्में हल करके कमाएँ।</string>
+    <string name="settings">सेटिंग्स</string>
+
+    <string name="pack_classics">ब्लैक एंड व्हाइट क्लासिक्स</string>
+    <string name="pack_retro">70 और 80 का दशक</string>
+    <string name="pack_90s">90 के हिट्स</string>
+    <string name="pack_2000s">2000 का दशक</string>
+    <string name="pack_2010s">2010 का दशक</string>
+    <string name="pack_new_hits">नई हिट्स</string>
+    <string name="pack_srk">शाहरुख़ ख़ान</string>
+    <string name="pack_aamir">आमिर ख़ान</string>
+    <string name="pack_salman">सलमान ख़ान</string>
+    <string name="pack_bigb">अमिताभ बच्चन</string>
+    <string name="pack_akshay">अक्षय कुमार</string>
+    <string name="pack_heroines">नायिकाएँ</string>
+    <string name="pack_emoji">इमोजी राउंड</string>
+    <string name="pack_dialogues">संवाद</string>
+    <string name="pack_directors">निर्देशक</string>
+
+    <string name="back">वापस</string>
+    <string name="daily_puzzle">आज की पहेली</string>
+    <string name="puzzle_count">पहेली %1$d / %2$d</string>
+    <string name="hint_reveal">एक अक्षर दिखाएँ</string>
+    <string name="hint_reveal_cost">20 सिक्के</string>
+    <string name="hint_free">मुफ़्त अक्षर</string>
+    <string name="hint_free_sub">छोटा विज्ञापन देखें</string>
+    <string name="toast_no_coins">सिक्के कम हैं। मुफ़्त अक्षर के लिए विज्ञापन देखें।</string>
+    <string name="ad_not_ready">विज्ञापन अभी तैयार नहीं है। थोड़ी देर बाद फिर कोशिश करें।</string>
+    <string name="ad_failed">विज्ञापन नहीं दिखा सके। फिर कोशिश करें।</string>
+
+    <string name="result_win3">ब्लॉकबस्टर!</string>
+    <string name="result_win2">हिट फ़िल्म!</string>
+    <string name="result_win1">बाल-बाल बचे</string>
+    <string name="result_flop">फ़्लॉप शो</string>
+    <string name="result_was_win">फ़िल्म थी</string>
+    <string name="result_was_flop">वो थी</string>
+    <string name="next_puzzle">अगली पहेली</string>
+    <string name="back_home">होम पर जाएँ</string>
+    <string name="try_next">अगली फ़िल्म आज़माएँ</string>
+    <string name="extra_life">एक और जान के लिए विज्ञापन देखें</string>
+
+    <string name="settings_language">भाषा</string>
+    <string name="lang_en">English</string>
+    <string name="lang_hi">हिन्दी</string>
+    <string name="settings_theme">थीम</string>
+    <string name="theme_system">सिस्टम डिफ़ॉल्ट</string>
+    <string name="theme_light">लाइट</string>
+    <string name="theme_dark">डार्क</string>
+    <string name="settings_note">फ़िल्म के सुराग अभी अंग्रेज़ी में हैं।</string>
+</resources>

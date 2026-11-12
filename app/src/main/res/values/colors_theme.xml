@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- LIGHT theme. The dark versions are in values-night/colors_theme.xml. -->
+<resources>
+    <color name="bg">#FFF6E3</color>
+    <color name="bg_clear">#00FFF6E3</color>
+    <color name="glow">#FFE3B0</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="outline">#E2D0A8</color>
+    <color name="text">#2A1A48</color>
+    <color name="dim">#6B5B8E</color>
+    <color name="accent">#B06400</color>
+    <color name="card">#FFFFFF</color>
+    <color name="card_stroke">#E2D0A8</color>
+    <color name="key_face">#FFFFFF</color>
+    <color name="key_edge">#D9C79F</color>
+</resources>

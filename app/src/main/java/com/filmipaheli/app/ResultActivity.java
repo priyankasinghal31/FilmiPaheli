@@ -45,16 +45,16 @@ public class ResultActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.rInfo)).setText(puzzle.category + ", " + puzzle.year);
 
         if (win) {
-            title.setText(stars == 3 ? "Blockbuster!" : stars == 2 ? "Hit film!" : "Just made it");
-            small.setText("The film was");
-            next.setText(daily ? "Back to home" : "Next puzzle");
+            title.setText(stars == 3 ? R.string.result_win3 : stars == 2 ? R.string.result_win2 : R.string.result_win1);
+            small.setText(R.string.result_was_win);
+            next.setText(daily ? R.string.back_home : R.string.next_puzzle);
             reward.setVisibility(gain > 0 ? View.VISIBLE : View.GONE);
             ((TextView) findViewById(R.id.rGain)).setText("+" + gain);
         } else {
-            title.setText("Flop show");
+            title.setText(R.string.result_flop);
             title.setTextColor(getColor(R.color.rani));
-            small.setText("It was");
-            next.setText("Try the next film");
+            small.setText(R.string.result_was_flop);
+            next.setText(R.string.try_next);
             reward.setVisibility(View.GONE);
             retry.setVisibility(View.VISIBLE);
         }
@@ -96,7 +96,7 @@ public class ResultActivity extends AppCompatActivity {
         for (int i = 0; i < 3; i++) {
             ImageView s = new ImageView(this);
             s.setImageResource(R.drawable.ic_star);
-            s.setColorFilter(getColor(i < earned ? R.color.marigold : R.color.line));
+            s.setColorFilter(getColor(i < earned ? R.color.marigold : R.color.outline));
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
             lp.setMargins(gap, 0, gap, 0);
             box.addView(s, lp);

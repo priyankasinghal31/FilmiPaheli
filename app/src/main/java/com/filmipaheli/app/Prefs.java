@@ -106,6 +106,40 @@ public final class Prefs {
         return n;
     }
 
+    // ---- theme: "system", "light" or "dark" ----
+    public String theme() {
+        return sp.getString("theme", "system");
+    }
+
+    public void setTheme(String theme) {
+        sp.edit().putString("theme", theme).apply();
+    }
+
+    /** Applies the saved theme. Call once at app start and again after it changes. */
+    public void applyTheme() {
+        int mode;
+        switch (theme()) {
+            case "light":
+                mode = androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
+                break;
+            case "dark":
+                mode = androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
+                break;
+            default:
+                mode = androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+        }
+        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(mode);
+    }
+
+    // ---- daily puzzle: played today (win or lose) and bonus ----
+    public boolean dailyPlayed() {
+        return today().equals(sp.getString("dailyPlayed", ""));
+    }
+
+    public void markDailyPlayed() {
+        sp.edit().putString("dailyPlayed", today()).apply();
+    }
+
     // ---- daily puzzle bonus ----
     public boolean dailyDone() {
         return today().equals(sp.getString("dailyDone", ""));

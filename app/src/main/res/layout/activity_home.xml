@@ -29,8 +29,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
-                    android:text="Filmi Paheli"
-                    android:textColor="@color/marigold"
+                    android:text="@string/brand_title"
+                    android:textColor="@color/accent"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
-                    android:text="फ़िल्मी पहेली"
+                    android:text="@string/brand_sub"
                     android:textColor="@color/dim"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:text="0"
-                    android:textColor="@color/cream"
+                    android:textColor="@color/text"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -90,10 +90,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:text="0"
-                    android:textColor="@color/cream"
+                    android:textColor="@color/text"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_iconbtn"
+                android:contentDescription="@string/settings"
+                android:padding="8dp"
+                android:src="@drawable/ic_settings"
+                android:tint="@color/text" />
         </LinearLayout>
 
         <!-- daily puzzle marquee card -->
@@ -105,21 +116,44 @@
             android:orientation="vertical"
             android:padding="22dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:letterSpacing="0.14"
-                android:text="AAJ KI PAHELI"
-                android:textColor="#B3170E2B"
-                android:textSize="11sp"
-                android:textStyle="bold" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:letterSpacing="0.14"
+                    android:text="@string/daily_eyebrow"
+                    android:textColor="#B3170E2B"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/dailyBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_done"
+                    android:paddingStart="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="3dp"
+                    android:text="@string/daily_played"
+                    android:textColor="@color/ink"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:fontFamily="serif"
-                android:text="Today's film, one clue"
+                android:text="@string/daily_title"
                 android:textColor="@color/ink"
                 android:textSize="26sp"
                 android:textStyle="bold" />
@@ -149,7 +183,7 @@
                     android:paddingStart="18dp"
                     android:paddingEnd="22dp"
                     android:stateListAnimator="@null"
-                    android:text="Play · +50"
+                    android:text="@string/daily_play"
                     android:textAllCaps="false"
                     android:textColor="@color/cream"
                     android:textSize="15sp"
@@ -175,8 +209,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
             android:fontFamily="serif"
-            android:text="Your streak"
-            android:textColor="@color/cream"
+            android:text="@string/streak_title_placeholder"
+            android:textColor="@color/text"
             android:textSize="19sp"
             android:textStyle="bold" />
 
@@ -193,16 +227,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
             android:fontFamily="serif"
-            android:text="Film packs"
-            android:textColor="@color/cream"
+            android:text="@string/packs_title"
+            android:textColor="@color/text"
             android:textSize="19sp"
             android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:id="@+id/packList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:overScrollMode="never" />
+            android:orientation="vertical" />
     </LinearLayout>
 </ScrollView>

@@ -60,7 +60,7 @@ public final class AdManager {
     /** Shows a rewarded ad. 'onReward' runs after the ad closes, only if the viewer earned the reward. */
     public void showRewarded(Activity activity, Runnable onReward) {
         if (rewarded == null) {
-            Toast.makeText(activity, "Ad is not ready yet. Try again in a moment.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, app.getString(R.string.ad_not_ready), Toast.LENGTH_SHORT).show();
             loadRewarded();
             return;
         }
@@ -77,7 +77,7 @@ public final class AdManager {
             @Override
             public void onAdFailedToShowFullScreenContent(@NonNull AdError error) {
                 loadRewarded();
-                Toast.makeText(activity, "Could not show the ad. Try again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, app.getString(R.string.ad_failed), Toast.LENGTH_SHORT).show();
             }
         });
         ad.show(activity, item -> earned[0] = true);

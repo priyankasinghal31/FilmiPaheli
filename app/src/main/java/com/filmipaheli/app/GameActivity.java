@@ -32,7 +32,7 @@ public class GameActivity extends AppCompatActivity {
     public static final String EX_LIVES = "lives";
     public static final String EX_USED = "used";
 
-    private static final int MAX_LIVES = 5;
+    private static final int MAX_LIVES = 3;
     private static final int HINT_COST = 20;
     private static final String[] ROWS = {"QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"};
 
@@ -74,12 +74,12 @@ public class GameActivity extends AppCompatActivity {
         keyboard = findViewById(R.id.keyboard);
         coinText = findViewById(R.id.coinText);
 
-        ((TextView) findViewById(R.id.packTitle)).setText(daily ? "Aaj ki Paheli" : Pack.byId(puzzle.pack).name);
+        ((TextView) findViewById(R.id.packTitle)).setText(daily ? getString(R.string.daily_puzzle) : getString(Pack.byId(puzzle.pack).nameRes));
         List<Puzzle> inPack = repo.inPack(puzzle.pack);
         int index = 0;
         for (int i = 0; i < inPack.size(); i++) if (inPack.get(i).id.equals(puzzle.id)) index = i;
         ((TextView) findViewById(R.id.countText)).setText(
-                daily ? "Daily puzzle" : "Puzzle " + (index + 1) + " of " + inPack.size());
+                daily ? getString(R.string.daily_puzzle) : getString(R.string.puzzle_count, index + 1, inPack.size()));
         ((TextView) findViewById(R.id.emojiText)).setText(puzzle.emoji);
         ((TextView) findViewById(R.id.clueText)).setText(puzzle.clue);
         ((TextView) findViewById(R.id.chipCat)).setText(puzzle.category);
@@ -123,7 +123,7 @@ public class GameActivity extends AppCompatActivity {
     private void onCoinHint() {
         if (locked) return;
         if (!prefs.spendCoins(HINT_COST)) {
-            Toast.makeText(this, "Not enough coins. Watch an ad for a free letter.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_no_coins, Toast.LENGTH_SHORT).show();
             shake(coinText);
             return;
         }
@@ -149,10 +149,11 @@ public class GameActivity extends AppCompatActivity {
         boolean win = isSolved();
         int stars = 0, gain = 0;
         if (win) {
-            stars = lives >= 4 ? 3 : lives >= 2 ? 2 : 1;
+            stars = lives >= 3 ? 3 : lives == 2 ? 2 : 1;
             boolean firstTime = !prefs.isSolved(puzzle.id);
             if (firstTime) gain += 10 * stars;
-            if (daily && !prefs.dailyDone()) {
+            if (daily) prefs.markDailyPlayed();
+        if (win && daily && !prefs.dailyDone()) {
                 gain += 50;
                 prefs.markDailyDone();
             }
@@ -189,7 +190,7 @@ public class GameActivity extends AppCompatActivity {
         for (int i = 0; i < MAX_LIVES; i++) {
             ImageView h = new ImageView(this);
             h.setImageResource(R.drawable.ic_heart);
-            h.setColorFilter(getColor(i < lives ? R.color.rani : R.color.line));
+            h.setColorFilter(getColor(i < lives ? R.color.rani : R.color.outline));
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(dp(22), dp(22));
             lp.setMargins(dp(3), 0, dp(3), 0);
             livesBox.addView(h, lp);
@@ -205,7 +206,7 @@ public class GameActivity extends AppCompatActivity {
 
         int longest = 1;
         for (String w : words) longest = Math.max(longest, w.length());
-        int tile = Math.min(dp(44), (avail - (longest - 1) * gap) / longest);
+        int tile = Math.min(dp(38), (avail - (longest - 1) * gap) / longest);
         int tileH = Math.round(tile * 1.2f);
 
         LinearLayout row = newRow();
@@ -225,7 +226,7 @@ public class GameActivity extends AppCompatActivity {
                 TextView t = new TextView(this);
                 t.setGravity(Gravity.CENTER);
                 t.setTypeface(Typeface.DEFAULT_BOLD);
-                t.setTextSize(tile >= dp(38) ? 25 : 20);
+                t.setTextSize(tile >= dp(34) ? 22 : 18);
                 t.setTextColor(getColor(R.color.ink));
                 boolean shown = used.contains(c);
                 if (shown) {
@@ -305,7 +306,7 @@ public class GameActivity extends AppCompatActivity {
         boolean hit = puzzle.answer.indexOf(c) >= 0;
         b.setEnabled(false);
         b.setBackgroundResource(hit ? R.drawable.key_ok : R.drawable.key_no);
-        b.setTextColor(getColor(hit ? R.color.ink : R.color.line));
+        b.setTextColor(getColor(hit ? R.color.ink : R.color.outline));
     }
 
     // -------------------------------------------------------------- helpers

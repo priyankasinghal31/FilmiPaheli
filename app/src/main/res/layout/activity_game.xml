@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_screen"
@@ -18,10 +19,10 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="@drawable/bg_iconbtn"
-            android:contentDescription="Back"
+            android:contentDescription="@string/back"
             android:padding="9dp"
             android:src="@drawable/ic_back"
-            android:tint="@color/cream" />
+            android:tint="@color/text" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -39,7 +40,7 @@
                 android:ellipsize="end"
                 android:fontFamily="serif"
                 android:maxLines="1"
-                android:textColor="@color/marigold"
+                android:textColor="@color/accent"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -71,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:textColor="@color/cream"
+                android:textColor="@color/text"
                 android:textSize="14sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -101,15 +102,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_strip"
             android:gravity="center"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:textSize="38sp" />
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="32sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="center_vertical"
             android:orientation="vertical"
             android:padding="18dp">
 
@@ -149,15 +149,20 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/clueText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="8dp"
+                android:layout_weight="1"
                 android:fontFamily="serif"
+                android:gravity="center_vertical"
                 android:textColor="@color/ink"
-                android:textSize="19sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeStepGranularity="1sp"
+                app:autoSizeTextType="uniform" />
         </LinearLayout>
     </LinearLayout>
 
@@ -205,15 +210,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reveal a letter"
-                    android:textColor="@color/cream"
+                    android:text="@string/hint_reveal"
+                    android:textColor="@color/text"
                     android:textSize="13.5sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="20 coins"
+                    android:text="@string/hint_reveal_cost"
                     android:textColor="@color/dim"
                     android:textSize="11sp"
                     android:textStyle="bold" />
@@ -247,7 +252,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Free letter"
+                    android:text="@string/hint_free"
                     android:textColor="@color/ink"
                     android:textSize="13.5sp"
                     android:textStyle="bold" />
@@ -255,7 +260,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Watch a short ad"
+                    android:text="@string/hint_free_sub"
                     android:textColor="#CC170E2B"
                     android:textSize="11sp"
                     android:textStyle="bold" />

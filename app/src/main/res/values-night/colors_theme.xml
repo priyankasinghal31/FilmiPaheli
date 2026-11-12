@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DARK theme. -->
+<resources>
+    <color name="bg">#170E2B</color>
+    <color name="bg_clear">#00170E2B</color>
+    <color name="glow">#3B2272</color>
+    <color name="surface">#2E1B52</color>
+    <color name="outline">#44306F</color>
+    <color name="text">#FFF0D2</color>
+    <color name="dim">#B9ABDB</color>
+    <color name="accent">#FFB224</color>
+    <color name="card">#FFF0D2</color>
+    <color name="card_stroke">#FFF0D2</color>
+    <color name="key_face">#FFF0D2</color>
+    <color name="key_edge">#F2DDB2</color>
+</resources>
