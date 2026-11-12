@@ -26,8 +26,8 @@ android {
         }
         release {
             // Your real AdMob ids. Release builds only.
-            manifestPlaceholders = [admobAppId: "ca-app-pub-4481983547528695~3831929520"]
-            buildConfigField "String", "REWARDED_ID", "\"ca-app-pub-4481983547528695/2024023831\""
+            manifestPlaceholders = [admobAppId: "ca-app-pub-1510739602043175~3609227386"]
+            buildConfigField "String", "REWARDED_ID", "\"ca-app-pub-1510739602043175/5353408105\""
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
