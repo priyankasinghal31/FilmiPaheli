@@ -209,4 +209,110 @@ public final class Prefs {
     public void markDailyDone() {
         sp.edit().putString("dailyDone", today()).apply();
     }
+
+    // ---- film download throttle ----
+    public long lastContentCheck() {
+        return sp.getLong("contentCheck", 0L);
+    }
+
+    public void setLastContentCheck(long millis) {
+        sp.edit().putLong("contentCheck", millis).apply();
+    }
+
+    // ---- counters used by achievements ----
+    public int stat(String key) {
+        return sp.getInt("stat_" + key, 0);
+    }
+
+    public void addStat(String key) {
+        sp.edit().putInt("stat_" + key, stat(key) + 1).apply();
+    }
+
+    public int solvedTotal() {
+        return set("solved").size();
+    }
+
+    // ---- achievements ----
+    public boolean hasAchievement(String id) {
+        return set("ach").contains(id);
+    }
+
+    public int achievementCount() {
+        return set("ach").size();
+    }
+
+    public void unlockAchievement(String id) {
+        Set<String> s = set("ach");
+        s.add(id);
+        sp.edit().putStringSet("ach", s).apply();
+    }
+
+    // ---- daily login bonus ----
+    /** What the player gets for opening the app today. */
+    public static final class Bonus {
+        public final int coins;
+        public final int milestone;
+        public final int streak;
+
+        Bonus(int coins, int milestone, int streak) {
+            this.coins = coins;
+            this.milestone = milestone;
+            this.streak = streak;
+        }
+    }
+
+    /** Returns today's bonus once per day, or null if it was already given. */
+    public Bonus claimLoginBonus() {
+        String today = today();
+        String last = sp.getString("loginLast", "");
+        if (today.equals(last)) return null;
+
+        Calendar y = Calendar.getInstance();
+        y.add(Calendar.DAY_OF_YEAR, -1);
+        int streak = dateKey(y.getTimeInMillis()).equals(last) ? sp.getInt("loginStreak", 0) + 1 : 1;
+
+        int base = 10;
+        int milestone = streak % 30 == 0 ? 500 : streak % 7 == 0 ? 150 : streak == 3 ? 50 : 0;
+        sp.edit().putString("loginLast", today).putInt("loginStreak", streak).apply();
+        addCoins(base + milestone);
+        return new Bonus(base, milestone, streak);
+    }
+
+    // ---- spin the wheel ----
+    public boolean freeSpinReady() {
+        return !today().equals(sp.getString("spinFree", ""));
+    }
+
+    public void useFreeSpin() {
+        sp.edit().putString("spinFree", today()).apply();
+    }
+
+    /** Extra spins per day that need a rewarded ad. */
+    public int adSpinsLeft() {
+        int used = today().equals(sp.getString("spinAdDate", "")) ? sp.getInt("spinAdCount", 0) : 0;
+        return Math.max(0, 3 - used);
+    }
+
+    public void useAdSpin() {
+        int used = today().equals(sp.getString("spinAdDate", "")) ? sp.getInt("spinAdCount", 0) : 0;
+        sp.edit().putString("spinAdDate", today()).putInt("spinAdCount", used + 1).apply();
+    }
+
+    // ---- rating prompt: asked at 5, 25 and 75 solved films, never again after "Rate now" ----
+    public boolean shouldAskRating() {
+        if (sp.getBoolean("rateDone", false)) return false;
+        int solved = solvedTotal();
+        int lastMark = sp.getInt("rateMark", 0);
+        for (int mark : new int[]{5, 25, 75}) {
+            if (mark > lastMark && solved >= mark) {
+                sp.edit().putInt("rateMark", mark).apply();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void setRateDone() {
+        sp.edit().putBoolean("rateDone", true).apply();
+    }
 }

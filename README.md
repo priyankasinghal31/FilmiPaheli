@@ -12,6 +12,10 @@ A Bollywood guess-the-film puzzle game for Android, written in Java. Each puzzle
 - Hindi or English app language, with Hindi clues for every film (answers are typed in English letters)
 - Light, dark or system theme
 - Sound effects and vibration (can be switched off), share result button, and a daily 7 pm reminder
+- Daily login bonus with streak milestones, a daily spin wheel (extra spins for rewarded ads) and 14 achievements
+- Ask a friend: share a clue (never the answer) and a rating prompt at 5, 25 and 75 solved films
+- Progress, coins and settings are included in Android's Google backup, so they come back on a new phone when backup is on
+- New films download automatically (see below)
 - Hints: spend 20 coins, or watch a rewarded ad for a free letter
 - Rewarded ad for an extra life after a loss
 - Ads only run when the player chooses to watch one (no forced ads)
@@ -52,6 +56,10 @@ python3 tools/build_puzzles.py
 ```
 
 Pack ids must match a `Pack` in `Pack.java`. Add a new `Pack` there to add a new pack.
+
+## Add films without an app update
+
+The app downloads `puzzles.json` from the link in `CONTENT_URL` in `app/build.gradle` (by default the file in this GitHub repo's `main` branch) and adds any new films the next time it starts. To publish new films: edit `tools/puzzles/`, run `python3 tools/build_puzzles.py`, commit and push. The link must be publicly readable, so the repo must be public, or you must point `CONTENT_URL` at another public link. New films must use an existing pack id. A new pack needs an app update.
 
 ## Sounds
 

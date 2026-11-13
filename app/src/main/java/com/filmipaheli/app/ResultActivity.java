@@ -1,13 +1,18 @@
 package com.filmipaheli.app;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 /** Shown after a film is solved: stars, coins, the film name, share and next puzzle. */
@@ -44,6 +49,12 @@ public class ResultActivity extends AppCompatActivity {
 
         drawStars(stars);
         Feedback.get(this).win();
+        Achievements.checkAndAnnounce(this);
+
+        // Happy moment, so ask for a rating (at 5, 25 and 75 solved films).
+        if (stars >= 2 && prefs.shouldAskRating()) {
+            new Handler(Looper.getMainLooper()).postDelayed(this::askForRating, 1600);
+        }
 
         Button next = findViewById(R.id.btnNext);
         next.setText(daily ? R.string.back_home : R.string.next_puzzle);
@@ -63,6 +74,8 @@ public class ResultActivity extends AppCompatActivity {
 
         findViewById(R.id.btnShare).setOnClickListener(v -> {
             Feedback.get(this).tap();
+            prefs.addStat("share");
+            Achievements.checkAndAnnounce(this);
             shareResult(stars, daily, packId);
         });
 
@@ -70,6 +83,28 @@ public class ResultActivity extends AppCompatActivity {
             Feedback.get(this).tap();
             goHome();
         });
+    }
+
+    private void askForRating() {
+        if (isFinishing() || isDestroyed()) return;
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.rate_title)
+                .setMessage(R.string.rate_message)
+                .setPositiveButton(R.string.rate_now, (d, w) -> {
+                    Prefs.get(this).setRateDone();
+                    openStorePage();
+                })
+                .setNegativeButton(R.string.rate_later, null)
+                .show();
+    }
+
+    private void openStorePage() {
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())));
+        }
     }
 
     /** Shares a message that does not reveal the answer. Hearts left equals stars earned. */

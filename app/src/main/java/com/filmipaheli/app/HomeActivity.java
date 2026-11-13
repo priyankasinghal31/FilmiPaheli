@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -48,6 +49,15 @@ public class HomeActivity extends AppCompatActivity {
 
         askNotificationPermissionOnce();
 
+        findViewById(R.id.cardSpin).setOnClickListener(v -> {
+            Feedback.get(this).tap();
+            startActivity(new Intent(this, SpinActivity.class));
+        });
+        findViewById(R.id.cardAch).setOnClickListener(v -> {
+            Feedback.get(this).tap();
+            startActivity(new Intent(this, AchievementsActivity.class));
+        });
+
         findViewById(R.id.btnSettings).setOnClickListener(v -> {
             Feedback.get(this).tap();
             startActivity(new Intent(this, SettingsActivity.class));
@@ -67,7 +77,21 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Prefs.Bonus bonus = prefs.claimLoginBonus();
+        Achievements.checkAndAnnounce(this);
         refresh();
+        if (bonus != null) showLoginBonus(bonus);
+    }
+
+    private void showLoginBonus(Prefs.Bonus b) {
+        String msg = getString(R.string.bonus_msg, b.coins, b.streak);
+        if (b.milestone > 0) msg += "\n" + getString(R.string.bonus_milestone, b.milestone);
+        Feedback.get(this).win();
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.bonus_title)
+                .setMessage(msg)
+                .setPositiveButton(R.string.bonus_ok, null)
+                .show();
     }
 
     private void refresh() {
@@ -83,6 +107,11 @@ public class HomeActivity extends AppCompatActivity {
         btnDaily.setText(played ? R.string.daily_play_again : R.string.daily_play);
         dailyStatus.setText(getString(R.string.daily_new_in, timeToMidnight()));
         buildPacks();
+
+        ((TextView) findViewById(R.id.spinStatus)).setText(
+                prefs.freeSpinReady() ? R.string.spin_free_ready : R.string.spin_tomorrow);
+        ((TextView) findViewById(R.id.achStatus)).setText(
+                getString(R.string.ach_progress, prefs.achievementCount(), Achievements.ALL.size()));
     }
 
     private String timeToMidnight() {

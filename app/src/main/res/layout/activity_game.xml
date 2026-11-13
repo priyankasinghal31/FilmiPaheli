@@ -53,6 +53,17 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <ImageButton
+            android:id="@+id/btnAsk"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_iconbtn"
+            android:contentDescription="@string/ask_friend"
+            android:padding="9dp"
+            android:src="@drawable/ic_share"
+            android:tint="@color/text" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="32dp"

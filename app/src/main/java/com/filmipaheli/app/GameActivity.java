@@ -90,6 +90,10 @@ public class GameActivity extends AppCompatActivity {
             Feedback.get(this).tap();
             finish();
         });
+        findViewById(R.id.btnAsk).setOnClickListener(v -> {
+            Feedback.get(this).tap();
+            askFriend(hindi);
+        });
         findViewById(R.id.hintCoin).setOnClickListener(v -> onCoinHint());
         findViewById(R.id.hintAd).setOnClickListener(v -> onAdHint());
 
@@ -131,6 +135,22 @@ public class GameActivity extends AppCompatActivity {
             prefs.setPendingLoss(puzzle.id, usedLetters());
             handler.postDelayed(this::promptAd, 600);
         }
+    }
+
+    /** Shares the clue (never the answer) so a friend can help guess. */
+    private void askFriend(boolean hindi) {
+        StringBuilder lengths = new StringBuilder();
+        for (String w : puzzle.answer.split(" ")) {
+            if (lengths.length() > 0) lengths.append(" + ");
+            lengths.append(w.length());
+        }
+        String link = "https://play.google.com/store/apps/details?id=" + getPackageName();
+        String text = getString(R.string.ask_text, puzzle.emoji, puzzle.clueFor(hindi), lengths, link);
+        Intent send = new Intent(Intent.ACTION_SEND);
+        send.setType("text/plain");
+        send.putExtra(Intent.EXTRA_TEXT, text);
+        prefs.addStat("ask");
+        startActivity(Intent.createChooser(send, getString(R.string.share_chooser)));
     }
 
     private String usedLetters() {
@@ -188,8 +208,10 @@ public class GameActivity extends AppCompatActivity {
         int stars = lives >= 3 ? 3 : lives == 2 ? 2 : 1;
         int gain = 0;
         if (!prefs.isSolved(puzzle.id)) gain += 10 * stars;
+        if (stars == 3) prefs.addStat("three");
         if (daily) prefs.markDailyPlayed();
         if (daily && !prefs.dailyDone()) {
+            prefs.addStat("daily");
             gain += 50;
             prefs.markDailyDone();
         }

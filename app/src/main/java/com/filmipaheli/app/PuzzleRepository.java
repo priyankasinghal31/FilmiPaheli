@@ -23,21 +23,41 @@ public final class PuzzleRepository {
     }
 
     private PuzzleRepository(Context ctx) {
+        // Built-in films first, then films downloaded later. Downloaded ones can add or replace by id.
+        java.util.LinkedHashMap<String, Puzzle> byId = new java.util.LinkedHashMap<>();
         try (InputStream in = ctx.getAssets().open("puzzles.json")) {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            byte[] buf = new byte[4096];
-            int n;
-            while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
-            JSONArray arr = new JSONArray(out.toString("UTF-8"));
-            for (int i = 0; i < arr.length(); i++) {
-                JSONObject o = arr.getJSONObject(i);
-                all.add(new Puzzle(
-                        o.getString("id"), o.getString("pack"), o.getString("answer"),
-                        o.getString("emoji"), o.getString("clue"), o.optString("clueHi", null),
-                        o.getString("category"), o.getString("year")));
-            }
+            read(new String(readAll(in), "UTF-8"), byId);
         } catch (Exception e) {
             throw new IllegalStateException("Could not read puzzles.json", e);
+        }
+        java.io.File remote = RemoteContent.file(ctx);
+        if (remote.exists()) {
+            try (InputStream in = new java.io.FileInputStream(remote)) {
+                read(new String(readAll(in), "UTF-8"), byId);
+            } catch (Exception ignored) {
+                // A bad download is ignored. The built-in films still work.
+            }
+        }
+        all.addAll(byId.values());
+    }
+
+    private static byte[] readAll(InputStream in) throws java.io.IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buf = new byte[4096];
+        int n;
+        while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
+        return out.toByteArray();
+    }
+
+    private static void read(String json, java.util.Map<String, Puzzle> into) throws org.json.JSONException {
+        JSONArray arr = new JSONArray(json);
+        for (int i = 0; i < arr.length(); i++) {
+            JSONObject o = arr.getJSONObject(i);
+            Puzzle p = new Puzzle(
+                    o.getString("id"), o.getString("pack"), o.getString("answer"),
+                    o.getString("emoji"), o.getString("clue"), o.optString("clueHi", null),
+                    o.getString("category"), o.getString("year"));
+            into.put(p.id, p);
         }
     }
 
