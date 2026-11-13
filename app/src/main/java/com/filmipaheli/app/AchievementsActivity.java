@@ -15,6 +15,7 @@ public class AchievementsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievements);
+        Edge.apply(this);
         Prefs prefs = Prefs.get(this);
         Achievements.checkAndAnnounce(this);
 

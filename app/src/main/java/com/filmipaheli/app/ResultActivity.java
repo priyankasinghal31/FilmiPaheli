@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,6 +26,14 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        Edge.apply(this);
+        // Back goes home. This replaces onBackPressed(), which Android 16 no longer calls.
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                goHome();
+            }
+        });
 
         Prefs prefs = Prefs.get(this);
         PuzzleRepository repo = PuzzleRepository.get(this);
@@ -145,10 +154,5 @@ public class ResultActivity extends AppCompatActivity {
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(i);
         finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-        goHome();
     }
 }

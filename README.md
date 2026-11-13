@@ -57,6 +57,10 @@ python3 tools/build_puzzles.py
 
 Pack ids must match a `Pack` in `Pack.java`. Add a new `Pack` there to add a new pack.
 
+## Publish to Google Play
+
+See [RELEASE.md](RELEASE.md) for the signing key, building the release bundle, the store listing text (`store/listing.md`), icons and graphics (`store/`), the privacy policy (`docs/index.html`) and the Play Console answers.
+
 ## Add films without an app update
 
 The app downloads `puzzles.json` from the link in `CONTENT_URL` in `app/build.gradle` (by default the file in this GitHub repo's `main` branch) and adds any new films the next time it starts. To publish new films: edit `tools/puzzles/`, run `python3 tools/build_puzzles.py`, commit and push. The link must be publicly readable, so the repo must be public, or you must point `CONTENT_URL` at another public link. New films must use an existing pack id. A new pack needs an app update.

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie ticket with three blank letter tiles. Kept inside the 66dp safe zone of the adaptive icon. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#FFB224" android:pathData="M34,37h40a6,6 0 0 1 6,6v7a4,4 0 0 0 0,8v7a6,6 0 0 1 -6,6h-40a6,6 0 0 1 -6,-6v-7a4,4 0 0 0 0,-8v-7a6,6 0 0 1 6,-6z"/>
+    <path android:fillColor="#170E2B" android:pathData="M37,49.5a2.5,2.5 0 0 1 2.5,-2.5h6a2.5,2.5 0 0 1 2.5,2.5v10a2.5,2.5 0 0 1 -2.5,2.5h-6a2.5,2.5 0 0 1 -2.5,-2.5z"/>
+    <path android:fillColor="#170E2B" android:pathData="M51,49.5a2.5,2.5 0 0 1 2.5,-2.5h6a2.5,2.5 0 0 1 2.5,2.5v10a2.5,2.5 0 0 1 -2.5,2.5h-6a2.5,2.5 0 0 1 -2.5,-2.5z"/>
+    <path android:fillColor="#170E2B" android:pathData="M66,49.5a2.5,2.5 0 0 1 2.5,-2.5h6a2.5,2.5 0 0 1 2.5,2.5v10a2.5,2.5 0 0 1 -2.5,2.5h-6a2.5,2.5 0 0 1 -2.5,-2.5z"/>
+    <path android:fillColor="#F0386B" android:pathData="M37.0,60h9v2h-9z"/>
+    <path android:fillColor="#F0386B" android:pathData="M51.5,60h9v2h-9z"/>
+    <path android:fillColor="#F0386B" android:pathData="M66.0,60h9v2h-9z"/>
+</vector>

@@ -2,18 +2,44 @@ plugins {
     id 'com.android.application'
 }
 
+// Release signing: put your keystore details in keystore.properties (see keystore.properties.example).
+// That file and the .jks are in .gitignore and must never be committed.
+def keystoreProps = new Properties()
+def keystoreFile = rootProject.file('keystore.properties')
+if (keystoreFile.exists()) {
+    keystoreFile.withInputStream { keystoreProps.load(it) }
+}
+
 android {
     namespace 'com.filmipaheli.app'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.filmipaheli.app"
         minSdk 24
-        targetSdk 34
+        targetSdk 36
         versionCode 1
         versionName "1.0"
         // Where new films are downloaded from. Needs a public link to a JSON file like puzzles.json.
         buildConfigField "String", "CONTENT_URL", "\"https://raw.githubusercontent.com/priyankasinghal31/FilmiPaheli/main/app/src/main/assets/puzzles.json\""
+    }
+
+    signingConfigs {
+        release {
+            if (keystoreFile.exists()) {
+                storeFile rootProject.file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
+
+    // Keep every language in the bundle. The in-app English/Hindi switch needs both on every phone.
+    bundle {
+        language {
+            enableSplit = false
+        }
     }
 
     buildFeatures {
@@ -32,6 +58,9 @@ android {
             buildConfigField "String", "REWARDED_ID", "\"ca-app-pub-1510739602043175/5353408105\""
             minifyEnabled true
             shrinkResources true
+            if (keystoreFile.exists()) {
+                signingConfig signingConfigs.release
+            }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

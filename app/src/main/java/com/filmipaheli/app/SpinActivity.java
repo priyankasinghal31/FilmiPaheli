@@ -19,6 +19,7 @@ public class SpinActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spin);
+        Edge.apply(this);
         prefs = Prefs.get(this);
 
         wheel = findViewById(R.id.wheel);

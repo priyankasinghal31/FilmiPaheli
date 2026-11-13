@@ -20,6 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        Edge.apply(this);
         Prefs prefs = Prefs.get(this);
 
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
